@@ -72,11 +72,11 @@ export default function MapViewInner({ zoneFilter }: { zoneFilter?: Zone }) {
 
     const isNorth = getZone(feature) === 'DNCC';
     return {
-      fillColor: isNorth ? '#dcfce7' : 'transparent',
+      fillColor: 'transparent',
       color: isNorth ? '#15803d' : '#be123c',
-      weight: isNorth ? 2 : 3,
-      fillOpacity: isNorth ? 0.85 : 0,
-      fill: isNorth,
+      weight: isNorth ? 3 : 3,
+      fillOpacity: 0,
+      fill: false,
     };
   };
 
@@ -88,7 +88,7 @@ export default function MapViewInner({ zoneFilter }: { zoneFilter?: Zone }) {
     layer.bindTooltip(label, { sticky: true });
 
     layer.on('mouseover', () => {
-      pathLayer.setStyle({ weight: 3.2, fillOpacity: 1 });
+      pathLayer.setStyle({ weight: 4 });
     });
 
     layer.on('mouseout', () => {
