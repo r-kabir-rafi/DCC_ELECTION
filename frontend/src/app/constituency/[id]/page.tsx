@@ -347,8 +347,8 @@ export default async function ConstituencyPage({ params }: ConstituencyPageProps
   return (
     <section className="h-full w-full overflow-y-auto bg-white px-6 py-8">
       <div className="mx-auto max-w-7xl">
-        <header className="rounded-2xl border border-gray-200 bg-gradient-to-r from-slate-50 to-white p-6 shadow-sm">
-          <div className="flex flex-wrap items-center gap-3">
+        <header className="rounded-2xl border border-gray-200 bg-gradient-to-r from-slate-50 to-white p-6 text-center shadow-sm">
+          <div className="flex flex-wrap items-center justify-center gap-3">
             <span className="rounded-full bg-indigo-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-indigo-700">
               Constituency
             </span>
@@ -357,7 +357,7 @@ export default async function ConstituencyPage({ params }: ConstituencyPageProps
             </span>
           </div>
           <h1 className="mt-3 text-4xl font-bold tracking-tight text-gray-900">{constituencyName}</h1>
-          <p className="mt-3 max-w-3xl text-base text-gray-700">{details}</p>
+          <p className="mx-auto mt-3 max-w-3xl text-base text-gray-700">{details}</p>
           <p className="mt-2 text-base font-semibold text-gray-800">
             Total Voters: <span className="text-indigo-700">{voterCount}</span>
           </p>
@@ -367,7 +367,7 @@ export default async function ConstituencyPage({ params }: ConstituencyPageProps
         </header>
 
         <div className="mt-8 rounded-xl border border-gray-200 bg-white shadow-sm">
-          <div className="border-b border-gray-200 px-5 py-4">
+          <div className="border-b border-gray-200 px-5 py-4 text-center">
             <h2 className="text-xl font-semibold text-gray-900">Candidate Vote Results</h2>
           </div>
           {seatData.candidates.length > 0 ? (

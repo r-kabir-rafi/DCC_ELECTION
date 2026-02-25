@@ -26,7 +26,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} bg-gray-50 text-gray-900 antialiased`}>
+      <body className={`${inter.className} bg-gray-50 text-gray-900 antialiased dark:bg-slate-950 dark:text-gray-100`}>
         <Navbar />
         <main className="pt-16 h-screen w-full flex flex-col">
           {children}

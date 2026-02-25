@@ -3,6 +3,7 @@ import { Map, MapPin } from "lucide-react";
 import ConstituencyQuickNav from "@/components/ConstituencyQuickNav";
 import ConstituenciesMapSingleSection from "@/components/ConstituenciesMapSingleSection";
 import CityGisMapSection from "@/components/CityGisMapSection";
+import CityCorporationCombinedTableSection from "@/components/CityCorporationCombinedTableSection";
 
 export default function Home() {
   return (
@@ -50,6 +51,7 @@ export default function Home() {
         <ConstituencyQuickNav />
         <ConstituenciesMapSingleSection />
         <CityGisMapSection />
+        <CityCorporationCombinedTableSection />
       </div>
     </div>
   );
