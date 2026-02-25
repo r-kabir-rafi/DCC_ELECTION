@@ -12,7 +12,7 @@ export default function ConstituencyQuickNav() {
   const [seatId, setSeatId] = useState<string>(QUICK_NAV_OPTIONS.DNCC[0].seatId);
 
   return (
-    <section className="mx-auto mt-8 w-full max-w-3xl rounded-2xl border border-gray-200 bg-white/95 p-5 text-left shadow-lg backdrop-blur">
+    <section className="mx-auto mt-8 w-full rounded-2xl border border-gray-200 bg-white/95 p-5 text-left shadow-lg backdrop-blur">
       <h2 className="text-lg font-bold text-gray-900">Quick Constituency Navigator</h2>
       <p className="mt-1 text-sm text-gray-600">Choose city corporation and constituency to jump directly.</p>
 

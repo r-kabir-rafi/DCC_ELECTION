@@ -346,7 +346,7 @@ export default async function ConstituencyPage({ params }: ConstituencyPageProps
 
   return (
     <section className="h-full w-full overflow-y-auto bg-white px-6 py-8">
-      <div className="mx-auto max-w-5xl">
+      <div className="mx-auto max-w-7xl">
         <header className="rounded-2xl border border-gray-200 bg-gradient-to-r from-slate-50 to-white p-6 shadow-sm">
           <div className="flex flex-wrap items-center gap-3">
             <span className="rounded-full bg-indigo-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-indigo-700">
@@ -370,7 +370,95 @@ export default async function ConstituencyPage({ params }: ConstituencyPageProps
           <div className="border-b border-gray-200 px-5 py-4">
             <h2 className="text-xl font-semibold text-gray-900">Candidate Vote Results</h2>
           </div>
-          {tribuneEmbedHtml ? (
+          {seatData.candidates.length > 0 ? (
+            <div className="overflow-x-auto">
+              <table className="min-w-full text-left text-sm">
+                <thead className="bg-gray-50 text-gray-700">
+                  <tr>
+                    <th className="px-4 py-3 font-semibold">#</th>
+                    <th className="px-4 py-3 font-semibold">Candidate</th>
+                    <th className="px-4 py-3 font-semibold">Party</th>
+                    <th className="px-4 py-3 font-semibold">Center</th>
+                    <th className="px-4 py-3 font-semibold">Votes</th>
+                    <th className="px-4 py-3 font-semibold">% of Total Voter</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {seatData.candidates.map((candidate, index) => {
+                    const candidateName = (candidate.candidate_name ?? candidate.name ?? "-").toString();
+                    const candidateVotes = parseNumeric(candidate.vote);
+                    const percent =
+                      totalVoters > 0
+                        ? (candidateVotes / totalVoters) * 100
+                        : totalCandidateVotes > 0
+                          ? (candidateVotes / totalCandidateVotes) * 100
+                          : 0;
+                    const candidateImage =
+                      typeof candidate.candidate_image === "string"
+                        ? candidate.candidate_image
+                        : absolutizeTribuneAsset(
+                            typeof candidate.image === "string" ? candidate.image : undefined,
+                            "candidate",
+                          );
+                    const partyImage =
+                      typeof candidate.party_image === "string"
+                        ? candidate.party_image
+                        : absolutizeTribuneAsset(typeof candidate.logo === "string" ? candidate.logo : undefined, "party");
+                    const centerCount = candidate.center ?? seatCenter;
+
+                    return (
+                      <tr key={`${candidate.id ?? candidateName}-${index}`} className="border-t border-gray-100 align-middle">
+                        <td className="px-4 py-3 font-semibold text-gray-900">{index + 1}</td>
+                        <td className="px-4 py-3">
+                          <div className="flex items-center gap-3">
+                            {candidateImage ? (
+                              // eslint-disable-next-line @next/next/no-img-element
+                              <img
+                                src={candidateImage}
+                                alt={candidateName}
+                                className="h-10 w-10 rounded object-cover ring-1 ring-gray-200"
+                                loading="lazy"
+                              />
+                            ) : (
+                              <div className="h-10 w-10 rounded bg-gray-100" />
+                            )}
+                            <span className="font-medium text-gray-900">{candidateName}</span>
+                          </div>
+                        </td>
+                        <td className="px-4 py-3">
+                          <div className="flex items-center gap-2">
+                            {partyImage ? (
+                              // eslint-disable-next-line @next/next/no-img-element
+                              <img
+                                src={partyImage}
+                                alt={`${candidate.league?.toString() ?? "Party"} logo`}
+                                className="h-8 w-8 rounded object-contain"
+                                loading="lazy"
+                              />
+                            ) : null}
+                            <span className="text-gray-700">{candidate.league?.toString() ?? "-"}</span>
+                          </div>
+                        </td>
+                        <td className="px-4 py-3 text-gray-700">{formatNumber(centerCount)}</td>
+                        <td className="px-4 py-3 font-semibold text-gray-900">{formatNumber(candidateVotes)}</td>
+                        <td className="px-4 py-3">
+                          <div className="w-44">
+                            <div className="h-2.5 w-full overflow-hidden rounded-full bg-gray-200">
+                              <div
+                                className="h-full rounded-full bg-indigo-600"
+                                style={{ width: `${Math.max(0, Math.min(100, percent))}%` }}
+                              />
+                            </div>
+                            <p className="mt-1 text-right text-xs font-semibold text-gray-700">{percent.toFixed(2)}%</p>
+                          </div>
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          ) : tribuneEmbedHtml ? (
             <div className="h-[720px] w-full overflow-hidden">
               <iframe
                 srcDoc={tribuneEmbedHtml}
@@ -379,85 +467,6 @@ export default async function ConstituencyPage({ params }: ConstituencyPageProps
                 loading="lazy"
                 sandbox="allow-same-origin"
               />
-            </div>
-          ) : seatData.candidates.length > 0 ? (
-            <div className="space-y-4 p-5">
-              {seatData.candidates.map((candidate, index) => {
-                const candidateName = (candidate.candidate_name ?? candidate.name ?? "-").toString();
-                const candidateVotes = parseNumeric(candidate.vote);
-                const percent =
-                  totalVoters > 0
-                    ? (candidateVotes / totalVoters) * 100
-                    : totalCandidateVotes > 0
-                      ? (candidateVotes / totalCandidateVotes) * 100
-                      : 0;
-                const candidateImage =
-                  typeof candidate.candidate_image === "string"
-                    ? candidate.candidate_image
-                    : absolutizeTribuneAsset(typeof candidate.image === "string" ? candidate.image : undefined, "candidate");
-                const partyImage =
-                  typeof candidate.party_image === "string"
-                    ? candidate.party_image
-                    : absolutizeTribuneAsset(typeof candidate.logo === "string" ? candidate.logo : undefined, "party");
-                const centerCount = candidate.center ?? seatCenter;
-
-                return (
-                  <div key={`${candidate.id ?? candidateName}-${index}`} className="rounded-lg border border-gray-200 bg-white p-4">
-                    <div className="grid grid-cols-1 items-center gap-4 md:grid-cols-[96px_1fr_72px_auto_160px]">
-                      <div className="flex items-center justify-center">
-                        {candidateImage ? (
-                          // eslint-disable-next-line @next/next/no-img-element
-                          <img
-                            src={candidateImage}
-                            alt={candidateName}
-                            className="h-20 w-20 rounded-md object-cover ring-1 ring-gray-200"
-                            loading="lazy"
-                          />
-                        ) : (
-                          <div className="flex h-20 w-20 items-center justify-center rounded-md bg-gray-100 text-xs text-gray-500">
-                            No Photo
-                          </div>
-                        )}
-                      </div>
-                      <div>
-                        <p className="text-xs font-semibold uppercase tracking-wide text-gray-500">Rank #{index + 1}</p>
-                        <h3 className="mt-1 text-lg font-semibold text-gray-900">{candidateName}</h3>
-                        <p className="text-sm text-gray-600">{candidate.league?.toString() ?? "-"}</p>
-                      </div>
-                      <div className="flex items-center justify-center">
-                        {partyImage ? (
-                          // eslint-disable-next-line @next/next/no-img-element
-                          <img
-                            src={partyImage}
-                            alt={`${candidate.league?.toString() ?? "Party"} logo`}
-                            className="h-14 w-14 rounded object-contain"
-                            loading="lazy"
-                          />
-                        ) : (
-                          <div className="text-xs text-gray-500">No Logo</div>
-                        )}
-                      </div>
-                      <div className="text-sm leading-6 text-gray-700">
-                        <p>
-                          Total Vote: <span className="font-semibold text-gray-900">{formatNumber(candidateVotes)}</span>
-                        </p>
-                        <p>
-                          Center: <span className="font-semibold text-gray-900">{formatNumber(centerCount)}</span>
-                        </p>
-                      </div>
-                      <div>
-                        <div className="h-3 w-full overflow-hidden rounded-full bg-gray-200">
-                          <div
-                            className="h-full rounded-full bg-indigo-600 transition-all"
-                            style={{ width: `${Math.max(0, Math.min(100, percent))}%` }}
-                          />
-                        </div>
-                        <p className="mt-2 text-right text-sm font-semibold text-gray-700">{percent.toFixed(2)}%</p>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
             </div>
           ) : (
             <p className="px-5 py-6 text-sm text-gray-600">Live constituency block is not available right now.</p>
