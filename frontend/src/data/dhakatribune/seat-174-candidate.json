@@ -1,0 +1,74 @@
+[
+  {
+    "id": 685,
+    "name": "Khandaker Abu Ashfaq",
+    "image": "1770840074.jfif",
+    "league": "Bangladesh Nationalist Party (BNP)",
+    "logo": "1769852771.webp",
+    "party_id": 38,
+    "seat_id": 238,
+    "el_status": null,
+    "vote": "173781",
+    "center": "185"
+  },
+  {
+    "id": 688,
+    "name": "Mohammad Nazrul Islam",
+    "image": "1770840127.jfif",
+    "league": "Bangladesh Jamaat-e-Islami",
+    "logo": "1769852416.png",
+    "party_id": 36,
+    "seat_id": 238,
+    "el_status": null,
+    "vote": "112622",
+    "center": "185"
+  },
+  {
+    "id": 686,
+    "name": "Nurul Islam",
+    "image": "1770840094.jfif",
+    "league": "Islami Andolon Bangladesh",
+    "logo": "1769852567.png",
+    "party_id": 37,
+    "seat_id": 238,
+    "el_status": null,
+    "vote": "6607",
+    "center": "185"
+  },
+  {
+    "id": 684,
+    "name": "Antara Selima Huda",
+    "image": "1770840005.jfif",
+    "league": "Independent",
+    "logo": "1704551148.jpg",
+    "party_id": 32,
+    "seat_id": 238,
+    "el_status": null,
+    "vote": "4880",
+    "center": "185"
+  },
+  {
+    "id": 687,
+    "name": "Md. Nasir Uddin Molla",
+    "image": "1770840119.jfif",
+    "league": "Jatiya Party (JaPa)",
+    "logo": "1702196200.png",
+    "party_id": 5,
+    "seat_id": 238,
+    "el_status": null,
+    "vote": "1362",
+    "center": "185"
+  },
+  {
+    "id": 689,
+    "name": "Sheikh Md. Ali",
+    "image": "1770840141.jfif",
+    "league": "Bangladesh Labour Party",
+    "logo": "1770206037.jpg",
+    "party_id": 114,
+    "seat_id": 238,
+    "el_status": null,
+    "vote": "271",
+    "center": "185"
+  }
+]

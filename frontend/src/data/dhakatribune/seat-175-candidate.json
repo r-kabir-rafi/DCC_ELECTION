@@ -1,0 +1,38 @@
+[
+  {
+    "id": 798,
+    "name": "Md. Jahirul Islam",
+    "image": "1770840213.",
+    "league": "Islami Andolon Bangladesh",
+    "logo": "1769852567.png",
+    "party_id": 37,
+    "seat_id": 239,
+    "el_status": null,
+    "vote": "6352",
+    "center": "142"
+  },
+  {
+    "id": 797,
+    "name": "Md. Amanullah Aman",
+    "image": "1770212946.webp",
+    "league": "Bangladesh Nationalist Party (BNP)",
+    "logo": "1769852771.webp",
+    "party_id": 38,
+    "seat_id": 239,
+    "el_status": null,
+    "vote": "163,793",
+    "center": "142"
+  },
+  {
+    "id": 796,
+    "name": "Md. Abdul Haque",
+    "image": "1770840205.",
+    "league": "Bangladesh Jamaat-e-Islami",
+    "logo": "1769852416.png",
+    "party_id": 36,
+    "seat_id": 239,
+    "el_status": null,
+    "vote": "80,053",
+    "center": "142"
+  }
+]

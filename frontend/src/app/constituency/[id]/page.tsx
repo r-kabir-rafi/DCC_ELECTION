@@ -1,4 +1,6 @@
 import { SEAT_TO_CONSTITUENCY } from "@/data/constituencies";
+import { readFile } from "node:fs/promises";
+import path from "node:path";
 
 interface ConstituencyPageProps {
   params: Promise<{ id: string }>;
@@ -31,6 +33,18 @@ type ApiCandidate = {
   image?: string;
   party_image?: string;
   party_logo?: string;
+};
+
+type ApiSeatListEntry = {
+  id?: number | string;
+  seat_no?: number | string;
+};
+
+type SeatData = {
+  seatSummary?: ApiSeatSummary;
+  candidates: ApiCandidate[];
+  rawCandidateHtml?: string;
+  source: "live" | "local";
 };
 
 type ElectionHistoryEntry = {
@@ -104,9 +118,33 @@ const CONSTITUENCY_HISTORY: Record<string, ElectionHistoryEntry[]> = Object.from
 ) as Record<string, ElectionHistoryEntry[]>;
 
 function formatNumber(value: number | string | undefined): string {
-  const numeric = Number(value ?? 0);
+  const numeric = parseNumeric(value);
   if (!Number.isFinite(numeric)) return "To be added";
   return new Intl.NumberFormat("en-US").format(numeric);
+}
+
+function parseNumeric(value: number | string | undefined | null): number {
+  if (typeof value === "number") return Number.isFinite(value) ? value : 0;
+  if (typeof value !== "string") return 0;
+  const cleaned = value.replace(/,/g, "").replace(/[^\d.-]/g, "");
+  const numeric = Number(cleaned);
+  return Number.isFinite(numeric) ? numeric : 0;
+}
+
+function hasUsableData(data: Pick<SeatData, "seatSummary" | "candidates" | "rawCandidateHtml">): boolean {
+  return Boolean(data.seatSummary || data.rawCandidateHtml || data.candidates.length > 0);
+}
+
+function absolutizeTribuneAsset(fileNameOrPath: string | undefined, folder: "candidate" | "party"): string | null {
+  if (!fileNameOrPath) return null;
+  const raw = fileNameOrPath.trim();
+  if (!raw) return null;
+  if (raw.startsWith("http://") || raw.startsWith("https://")) return raw;
+  const cleaned = raw.replace(/^\.?\//, "").replace(/^upload\//, "").replace(/^candidate\//, "").replace(/^party\//, "");
+  if (cleaned.includes("/")) {
+    return `https://election.dhakatribune.com/${cleaned}`;
+  }
+  return `https://election.dhakatribune.com/upload/${folder}/${cleaned}`;
 }
 
 function readArrayPayload<T>(value: unknown): T[] {
@@ -118,60 +156,54 @@ function readArrayPayload<T>(value: unknown): T[] {
   return [];
 }
 
-function resolveAssetUrl(raw: string | undefined): string | null {
-  if (!raw) return null;
-  const trimmed = raw.trim();
-  if (!trimmed) return null;
-  if (trimmed.startsWith("http://") || trimmed.startsWith("https://")) return trimmed;
-  const cleaned = trimmed.endsWith(".") ? trimmed.slice(0, -1) : trimmed;
-  const path = cleaned.replace(/^\.?\//, "");
-  return `https://election.dhakatribune.com/${path}`;
-}
-
-function pickFirstString(source: Record<string, unknown>, keys: string[]): string | undefined {
-  for (const key of keys) {
-    const value = source[key];
-    if (typeof value === "string" && value.trim()) return value;
-  }
-  return undefined;
-}
-
-function findImagePathByToken(source: Record<string, unknown>, token: string): string | undefined {
-  for (const value of Object.values(source)) {
-    if (typeof value !== "string") continue;
-    if (value.includes(token)) return value;
-  }
-  return undefined;
-}
-
-async function getLiveSeatData(id: string): Promise<{
-  seatSummary?: ApiSeatSummary;
-  candidates: ApiCandidate[];
-  rawCandidateHtml?: string;
-}> {
+async function getLiveSeatData(id: string): Promise<SeatData> {
   try {
-    const [seatRes, candidateRes] = await Promise.all([
-      fetch(`https://election.dhakatribune.com/get-home-seats/${id}`, { cache: "no-store" }),
-      fetch(`https://election.dhakatribune.com/get-candidate/${id}`, { cache: "no-store" }),
-    ]);
+    const seatRes = await fetch(`https://election.dhakatribune.com/get-home-seats/${id}`, { cache: "no-store" });
 
     const seatJson = seatRes.ok ? ((await seatRes.json()) as unknown) : null;
     const seatSummary = readArrayPayload<ApiSeatSummary>(seatJson)[0];
 
+    // Match Dhaka Tribune seat list first, then use its internal id for candidates.
+    let resolvedCandidateSourceId = id;
+    const seatListRes = await fetch("https://election.dhakatribune.com/get-seats/3", { cache: "no-store" });
+    if (seatListRes.ok) {
+      const seatListJson = (await seatListRes.json()) as unknown;
+      const seatRows = readArrayPayload<ApiSeatListEntry>(seatListJson);
+      const matchedSeat = seatRows.find((row) => String(row.seat_no ?? "") === id);
+      if (matchedSeat?.id !== undefined && matchedSeat.id !== null) {
+        resolvedCandidateSourceId = String(matchedSeat.id);
+      }
+    }
+
     let candidates: ApiCandidate[] = [];
     let rawCandidateHtml: string | undefined;
+    const candidateRes = await fetch(`https://election.dhakatribune.com/get-candidate/${resolvedCandidateSourceId}`, {
+      cache: "no-store",
+    });
     if (candidateRes.ok) {
       const raw = await candidateRes.text();
+      if (raw.includes("dt-s-candidate-content")) {
+        rawCandidateHtml = raw;
+      }
 
       try {
         const candidateJson = JSON.parse(raw) as unknown;
         candidates = readArrayPayload<ApiCandidate>(candidateJson).map((row) => ({
           ...row,
-          vote: Number(row.vote ?? 0),
+          vote: parseNumeric(row.vote),
+          candidate_image:
+            absolutizeTribuneAsset(
+              typeof row.image === "string" ? row.image : typeof row.candidate_image === "string" ? row.candidate_image : undefined,
+              "candidate",
+            ) ?? undefined,
+          party_image:
+            absolutizeTribuneAsset(
+              typeof row.logo === "string" ? row.logo : typeof row.party_image === "string" ? row.party_image : undefined,
+              "party",
+            ) ?? undefined,
         }));
       } catch {
-        // Some seat responses can be HTML card blocks; parse image/name/vote/center/percentage from markup.
-        rawCandidateHtml = raw;
+        // Some responses are HTML card blocks; parse image/name/vote/center/percentage.
         const blocks = raw.match(/<div class="col-lg-12 mt-5 text-center">[\s\S]*?<\/div>\s*<\/div>/g) ?? [];
         candidates = blocks.map((block) => {
           const candidateImage =
@@ -197,58 +229,118 @@ async function getLiveSeatData(id: string): Promise<{
 
           return {
             candidate_name: name,
-            vote: Number(voteText.replace(/,/g, "")),
-            center: centerText ? Number(centerText.replace(/,/g, "")) : undefined,
-            percentage: percentText ? Number(percentText) : undefined,
-            candidate_image: candidateImage,
-            party_image: partyImage,
+            vote: parseNumeric(voteText),
+            center: centerText ? parseNumeric(centerText) : undefined,
+            percentage: percentText ? parseNumeric(percentText) : undefined,
+            candidate_image: absolutizeTribuneAsset(candidateImage, "candidate") ?? undefined,
+            party_image: absolutizeTribuneAsset(partyImage, "party") ?? undefined,
           } satisfies ApiCandidate;
         });
       }
     }
 
-    candidates = candidates.sort((a, b) => Number(b.vote ?? 0) - Number(a.vote ?? 0));
+    candidates = candidates.sort((a, b) => parseNumeric(b.vote) - parseNumeric(a.vote));
 
-    return { seatSummary, candidates, rawCandidateHtml };
+    return { seatSummary, candidates, rawCandidateHtml, source: "live" };
   } catch {
-    return { candidates: [] };
+    return { candidates: [], source: "live" };
   }
+}
+
+async function getLocalSeatData(id: string): Promise<SeatData> {
+  const baseDir = path.join(process.cwd(), "frontend", "src", "data", "dhakatribune");
+  try {
+    const [homeRaw, candidateRaw] = await Promise.all([
+      readFile(path.join(baseDir, `seat-${id}-home.raw`), "utf8"),
+      readFile(path.join(baseDir, `seat-${id}-candidate.raw`), "utf8"),
+    ]);
+
+    let seatSummary: ApiSeatSummary | undefined;
+    try {
+      const seatJson = JSON.parse(homeRaw) as unknown;
+      seatSummary = readArrayPayload<ApiSeatSummary>(seatJson)[0];
+    } catch {
+      seatSummary = undefined;
+    }
+
+    let candidates: ApiCandidate[] = [];
+    let rawCandidateHtml: string | undefined;
+    if (candidateRaw.includes("dt-s-candidate-content")) {
+      rawCandidateHtml = candidateRaw;
+    }
+    try {
+      const candidateJson = JSON.parse(candidateRaw) as unknown;
+      candidates = readArrayPayload<ApiCandidate>(candidateJson)
+        .map((row) => ({
+          ...row,
+          vote: parseNumeric(row.vote),
+          candidate_image:
+            absolutizeTribuneAsset(
+              typeof row.image === "string" ? row.image : typeof row.candidate_image === "string" ? row.candidate_image : undefined,
+              "candidate",
+            ) ?? undefined,
+          party_image:
+            absolutizeTribuneAsset(
+              typeof row.logo === "string" ? row.logo : typeof row.party_image === "string" ? row.party_image : undefined,
+              "party",
+            ) ?? undefined,
+        }))
+        .sort((a, b) => parseNumeric(b.vote) - parseNumeric(a.vote));
+    } catch {
+      candidates = [];
+    }
+
+    return { seatSummary, candidates, rawCandidateHtml, source: "local" };
+  } catch {
+    return { candidates: [], source: "local" };
+  }
+}
+
+async function resolveSeatData(id: string): Promise<SeatData> {
+  const mode = (process.env.DHAKA_DATA_SOURCE ?? "auto").toLowerCase();
+
+  if (mode === "local") {
+    return getLocalSeatData(id);
+  }
+
+  if (mode === "live") {
+    const live = await getLiveSeatData(id);
+    if (hasUsableData(live)) return live;
+    return getLocalSeatData(id);
+  }
+
+  const live = await getLiveSeatData(id);
+  if (hasUsableData(live)) return live;
+  return getLocalSeatData(id);
 }
 
 export default async function ConstituencyPage({ params }: ConstituencyPageProps) {
   const { id } = await params;
   const constituencyName = SEAT_TO_CONSTITUENCY[id] ?? `Constituency ${id}`;
   const details = CONSTITUENCY_DETAILS[constituencyName] ?? "No ward details added yet.";
-  const live = await getLiveSeatData(id);
-  const voterCount = live.seatSummary?.total_voter
-    ? formatNumber(live.seatSummary.total_voter)
+  const seatData = await resolveSeatData(id);
+  const voterCount = seatData.seatSummary?.total_voter
+    ? formatNumber(seatData.seatSummary.total_voter)
     : CONSTITUENCY_VOTERS[constituencyName] ?? "To be added";
   const history = (CONSTITUENCY_HISTORY[constituencyName] ?? []).map((entry) => ({
     ...entry,
-    winner: live.seatSummary?.winer_name ?? live.seatSummary?.winner_name ?? entry.winner,
-    party: live.seatSummary?.winer_league ?? live.seatSummary?.winner_league ?? entry.party,
+    winner: seatData.seatSummary?.winer_name ?? seatData.seatSummary?.winner_name ?? entry.winner,
+    party: seatData.seatSummary?.winer_league ?? seatData.seatSummary?.winner_league ?? entry.party,
   }));
-  const totalCandidateVotes = live.candidates.reduce((sum, row) => sum + Number(row.vote ?? 0), 0);
-  const seatCenter = live.seatSummary?.total_center ?? live.seatSummary?.center;
-  const tribuneEmbedHtml = live.rawCandidateHtml?.includes("dt-s-candidate-content")
+  const totalCandidateVotes = seatData.candidates.reduce((sum, row) => sum + parseNumeric(row.vote), 0);
+  const totalVoters = parseNumeric(seatData.seatSummary?.total_voter);
+  const seatCenter = seatData.seatSummary?.total_center ?? seatData.seatSummary?.center;
+  const tribuneEmbedHtml = seatData.rawCandidateHtml?.includes("dt-s-candidate-content")
     ? `<!doctype html>
 <html>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <base href="https://election.dhakatribune.com/" />
-    <style>
-      body { font-family: Arial, sans-serif; margin: 0; background: #fff; padding: 12px; }
-      .row { margin-left: 0; margin-right: 0; }
-      .card { border: 1px solid #e5e7eb; border-radius: 8px; margin-bottom: 12px; }
-      img { max-width: 100%; height: auto; }
-      .progress { background: #e5e7eb; border-radius: 9999px; overflow: hidden; min-height: 12px; }
-      .progress-bar { background: #4f46e5; min-height: 12px; }
-      .mt-5 { margin-top: 8px !important; }
-      .text-center { text-align: left !important; }
-    </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+    <style>body{margin:0;padding:16px;background:#fff;}</style>
   </head>
-  <body>${live.rawCandidateHtml}</body>
+  <body>${seatData.rawCandidateHtml}</body>
 </html>`
     : null;
 
@@ -269,60 +361,57 @@ export default async function ConstituencyPage({ params }: ConstituencyPageProps
           <p className="mt-2 text-base font-semibold text-gray-800">
             Total Voters: <span className="text-indigo-700">{voterCount}</span>
           </p>
-          <p className="mt-1 text-xs text-gray-500">Live source: election.dhakatribune.com</p>
+          <p className="mt-1 text-xs text-gray-500">
+            Source: election.dhakatribune.com ({seatData.source === "live" ? "live" : "local snapshot"})
+          </p>
         </header>
 
         <div className="mt-8 rounded-xl border border-gray-200 bg-white shadow-sm">
           <div className="border-b border-gray-200 px-5 py-4">
             <h2 className="text-xl font-semibold text-gray-900">Candidate Vote Results</h2>
           </div>
-          {live.candidates.length === 0 ? (
-            <p className="px-5 py-6 text-sm text-gray-600">No candidate vote data available right now.</p>
-          ) : (
+          {tribuneEmbedHtml ? (
+            <div className="h-[720px] w-full overflow-hidden">
+              <iframe
+                srcDoc={tribuneEmbedHtml}
+                className="h-full w-full"
+                title={`${constituencyName} candidate results`}
+                loading="lazy"
+                sandbox="allow-same-origin"
+              />
+            </div>
+          ) : seatData.candidates.length > 0 ? (
             <div className="space-y-4 p-5">
-              {live.candidates.map((candidate, index) => {
-                const candidateName = candidate.candidate_name ?? candidate.name ?? "-";
-                const candidateVotes = Number(candidate.vote ?? 0);
-                const rawPercent = Number(candidate.percentage ?? candidate.vote_percentage ?? NaN);
-                const computedPercent = totalCandidateVotes > 0 ? (candidateVotes / totalCandidateVotes) * 100 : 0;
-                const percent = Number.isFinite(rawPercent) && rawPercent > 0 ? rawPercent : computedPercent;
-                const candidateImageUrl = resolveAssetUrl(
-                  pickFirstString(candidate, [
-                    "candidate_image",
-                    "candidate_img",
-                    "candidate_photo",
-                    "image",
-                    "img",
-                    "photo",
-                  ]) ?? findImagePathByToken(candidate, "/upload/candidate/"),
-                );
-                const partyImageUrl = resolveAssetUrl(
-                  pickFirstString(candidate, [
-                    "party_image",
-                    "party_img",
-                    "party_logo",
-                    "logo",
-                    "symbol_image",
-                    "symbol_img",
-                  ]) ?? findImagePathByToken(candidate, "/upload/party/"),
-                );
+              {seatData.candidates.map((candidate, index) => {
+                const candidateName = (candidate.candidate_name ?? candidate.name ?? "-").toString();
+                const candidateVotes = parseNumeric(candidate.vote);
+                const percent =
+                  totalVoters > 0
+                    ? (candidateVotes / totalVoters) * 100
+                    : totalCandidateVotes > 0
+                      ? (candidateVotes / totalCandidateVotes) * 100
+                      : 0;
+                const candidateImage =
+                  typeof candidate.candidate_image === "string"
+                    ? candidate.candidate_image
+                    : absolutizeTribuneAsset(typeof candidate.image === "string" ? candidate.image : undefined, "candidate");
+                const partyImage =
+                  typeof candidate.party_image === "string"
+                    ? candidate.party_image
+                    : absolutizeTribuneAsset(typeof candidate.logo === "string" ? candidate.logo : undefined, "party");
                 const centerCount = candidate.center ?? seatCenter;
 
                 return (
-                  <div
-                    key={`${candidate.id ?? candidateName}-${index}`}
-                    className="rounded-lg border border-gray-200 bg-white p-4 shadow-sm"
-                  >
-                    <div className="grid grid-cols-1 items-center gap-4 md:grid-cols-[100px_1fr_72px_auto_160px]">
+                  <div key={`${candidate.id ?? candidateName}-${index}`} className="rounded-lg border border-gray-200 bg-white p-4">
+                    <div className="grid grid-cols-1 items-center gap-4 md:grid-cols-[96px_1fr_72px_auto_160px]">
                       <div className="flex items-center justify-center">
-                        {candidateImageUrl ? (
+                        {candidateImage ? (
                           // eslint-disable-next-line @next/next/no-img-element
                           <img
-                            src={candidateImageUrl}
+                            src={candidateImage}
                             alt={candidateName}
                             className="h-20 w-20 rounded-md object-cover ring-1 ring-gray-200"
                             loading="lazy"
-                            referrerPolicy="no-referrer"
                           />
                         ) : (
                           <div className="flex h-20 w-20 items-center justify-center rounded-md bg-gray-100 text-xs text-gray-500">
@@ -330,28 +419,24 @@ export default async function ConstituencyPage({ params }: ConstituencyPageProps
                           </div>
                         )}
                       </div>
-
                       <div>
                         <p className="text-xs font-semibold uppercase tracking-wide text-gray-500">Rank #{index + 1}</p>
                         <h3 className="mt-1 text-lg font-semibold text-gray-900">{candidateName}</h3>
-                        <p className="text-sm text-gray-600">{candidate.league ?? "-"}</p>
+                        <p className="text-sm text-gray-600">{candidate.league?.toString() ?? "-"}</p>
                       </div>
-
                       <div className="flex items-center justify-center">
-                        {partyImageUrl ? (
+                        {partyImage ? (
                           // eslint-disable-next-line @next/next/no-img-element
                           <img
-                            src={partyImageUrl}
-                            alt={`${candidate.league ?? "Party"} logo`}
+                            src={partyImage}
+                            alt={`${candidate.league?.toString() ?? "Party"} logo`}
                             className="h-14 w-14 rounded object-contain"
                             loading="lazy"
-                            referrerPolicy="no-referrer"
                           />
                         ) : (
                           <div className="text-xs text-gray-500">No Logo</div>
                         )}
                       </div>
-
                       <div className="text-sm leading-6 text-gray-700">
                         <p>
                           Total Vote: <span className="font-semibold text-gray-900">{formatNumber(candidateVotes)}</span>
@@ -360,7 +445,6 @@ export default async function ConstituencyPage({ params }: ConstituencyPageProps
                           Center: <span className="font-semibold text-gray-900">{formatNumber(centerCount)}</span>
                         </p>
                       </div>
-
                       <div>
                         <div className="h-3 w-full overflow-hidden rounded-full bg-gray-200">
                           <div
@@ -375,28 +459,8 @@ export default async function ConstituencyPage({ params }: ConstituencyPageProps
                 );
               })}
             </div>
-          )}
-        </div>
-
-        <div className="mt-8 rounded-xl border border-gray-200 bg-white p-4 shadow-sm">
-          <h2 className="text-xl font-semibold text-gray-900">Dhaka Tribune Live Section</h2>
-          <p className="mt-1 text-sm text-gray-600">
-            Embedded candidate block for this constituency from election.dhakatribune.com.
-          </p>
-          {tribuneEmbedHtml ? (
-            <div className="mt-4 h-[520px] w-full overflow-hidden rounded-lg border border-gray-200">
-              <iframe
-                srcDoc={tribuneEmbedHtml}
-                className="h-full w-full"
-                title={`${constituencyName} dhaka tribune section`}
-                loading="lazy"
-                sandbox="allow-same-origin"
-              />
-            </div>
           ) : (
-            <p className="mt-4 rounded-md border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800">
-              Live HTML block is not available for this seat right now.
-            </p>
+            <p className="px-5 py-6 text-sm text-gray-600">Live constituency block is not available right now.</p>
           )}
         </div>
 

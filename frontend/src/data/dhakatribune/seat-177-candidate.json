@@ -1,0 +1,98 @@
+[
+  {
+    "id": 819,
+    "name": "Mohammad Mizanur Rahman",
+    "image": "1770840418.",
+    "league": "Independent",
+    "logo": "1704551148.jpg",
+    "party_id": 32,
+    "seat_id": 241,
+    "el_status": null,
+    "vote": "2867",
+    "center": "116"
+  },
+  {
+    "id": 818,
+    "name": "Mohammad Firoz Alam",
+    "image": "1770840407.",
+    "league": "Communist Party of Bangladesh",
+    "logo": "1770214086.png",
+    "party_id": 47,
+    "seat_id": 241,
+    "el_status": null,
+    "vote": "367",
+    "center": "116"
+  },
+  {
+    "id": 816,
+    "name": "Md. Abul Kalam Azad",
+    "image": "1770840397.",
+    "league": "Janata Party",
+    "logo": "1769856417.jpg",
+    "party_id": 84,
+    "seat_id": 241,
+    "el_status": null,
+    "vote": "191",
+    "center": "116"
+  },
+  {
+    "id": 817,
+    "name": "Md. Zakir Hossain",
+    "image": "1770840403.",
+    "league": "Bangladesh Socialist Party (BASAD)",
+    "logo": "1769854432.png",
+    "party_id": 48,
+    "seat_id": 241,
+    "el_status": null,
+    "vote": "184",
+    "center": "116"
+  },
+  {
+    "id": 820,
+    "name": "Sahel Ahmed Sohel",
+    "image": "1770840425.",
+    "league": "Bangladesh Cultural Liberation Front (Muktijot)",
+    "logo": "1769855708.png",
+    "party_id": 71,
+    "seat_id": 241,
+    "el_status": null,
+    "vote": "128",
+    "center": "116"
+  },
+  {
+    "id": 821,
+    "name": "Syed Zainul Abedin",
+    "image": "1770840431.",
+    "league": "Bangladesh Jamaat-e-Islami",
+    "logo": "1769852416.png",
+    "party_id": 36,
+    "seat_id": 241,
+    "el_status": null,
+    "vote": "77,367",
+    "center": "116"
+  },
+  {
+    "id": 815,
+    "name": "Tanvir Ahmed",
+    "image": "1770216875.jpg",
+    "league": "Bangladesh Nationalist Party (BNP)",
+    "logo": "1769852771.webp",
+    "party_id": 38,
+    "seat_id": 241,
+    "el_status": null,
+    "vote": "74,447",
+    "center": "116"
+  },
+  {
+    "id": 822,
+    "name": "Syed Md. Mosaddeq Billah",
+    "image": "1770840438.",
+    "league": "Islami Andolon Bangladesh",
+    "logo": "1769852567.png",
+    "party_id": 37,
+    "seat_id": 241,
+    "el_status": null,
+    "vote": "6,518",
+    "center": "116"
+  }
+]

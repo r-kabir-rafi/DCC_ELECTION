@@ -1,0 +1,86 @@
+[
+  {
+    "id": 837,
+    "name": "Ishraq Hossain",
+    "image": "1770217410.jpg",
+    "league": "Bangladesh Nationalist Party (BNP)",
+    "logo": "1769852771.webp",
+    "party_id": 38,
+    "seat_id": 243,
+    "el_status": null,
+    "vote": "78850",
+    "center": "101"
+  },
+  {
+    "id": 839,
+    "name": "Md. Abdul Mannan",
+    "image": "1770840743.",
+    "league": "Bangladesh Jamaat-e-Islami",
+    "logo": "1769852416.png",
+    "party_id": 36,
+    "seat_id": 243,
+    "el_status": null,
+    "vote": "55697",
+    "center": "101"
+  },
+  {
+    "id": 835,
+    "name": "Amir Uddin Ahmed (Dalu)",
+    "image": "1770840711.",
+    "league": "Jatiya Party (JaPa)",
+    "logo": "1702196200.png",
+    "party_id": 5,
+    "seat_id": 243,
+    "el_status": null,
+    "vote": "1778",
+    "center": "101"
+  },
+  {
+    "id": 840,
+    "name": "Md. Yunus Ali Akand",
+    "image": "1770840749.jfif",
+    "league": "Bangladesh Congress",
+    "logo": "1703160912.jpg",
+    "party_id": 14,
+    "seat_id": 243,
+    "el_status": null,
+    "vote": "319",
+    "center": "101"
+  },
+  {
+    "id": 838,
+    "name": "Md. Aktar Hossain",
+    "image": "1770840737.",
+    "league": "Bangladesh Muslim League",
+    "logo": "1769855087.png",
+    "party_id": 59,
+    "seat_id": 243,
+    "el_status": null,
+    "vote": "245",
+    "center": "101"
+  },
+  {
+    "id": 836,
+    "name": "Ahmed Ali Sheikh",
+    "image": "1770840731.",
+    "league": "Gono Front",
+    "logo": "1703165341.jpg",
+    "party_id": 29,
+    "seat_id": 243,
+    "el_status": null,
+    "vote": "152",
+    "center": "101"
+  },
+  {
+    "id": 841,
+    "name": "Md. Fakhrul Islam",
+    "image": "1770840757.",
+    "league": "Gono Odhikar Parishad (GOP)",
+    "logo": "1770210478.jpeg",
+    "party_id": 39,
+    "seat_id": 243,
+    "el_status": null,
+    "vote": "138",
+    "center": "101"
+  }
+]

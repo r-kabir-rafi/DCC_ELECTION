@@ -1,0 +1,17 @@
+[
+  {
+    "id": 238,
+    "seat_no": 174,
+    "seat_name": "Dhaka-1",
+    "division_id": 3,
+    "total_voter": "545,140",
+    "male_voter": "276,050",
+    "female_voter": "269,085",
+    "total_center": "184",
+    "result_id": null,
+    "seats_area": "Dohar, Nawabganj",
+    "yes": null,
+    "no": null,
+    "total_candidate": 6
+  }
+]

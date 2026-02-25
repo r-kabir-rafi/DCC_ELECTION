@@ -1,0 +1,122 @@
+[
+  {
+    "id": 699,
+    "name": "Sheikh Rabiul Alam",
+    "image": "1770206275.jpg",
+    "league": "Bangladesh Nationalist Party (BNP)",
+    "logo": "1769852771.webp",
+    "party_id": 38,
+    "seat_id": 247,
+    "el_status": null,
+    "vote": "79035",
+    "center": "136"
+  },
+  {
+    "id": 697,
+    "name": "Md. Jasim Uddin Sarkar",
+    "image": "1770841570.",
+    "league": "Bangladesh Jamaat-e-Islami",
+    "logo": "1769852416.png",
+    "party_id": 36,
+    "seat_id": 247,
+    "el_status": null,
+    "vote": "74773",
+    "center": "136"
+  },
+  {
+    "id": 690,
+    "name": "Abul Kalam Azad",
+    "image": "1770841517.",
+    "league": "Bangladesh Labour Party",
+    "logo": "1770206037.jpg",
+    "party_id": 114,
+    "seat_id": 247,
+    "el_status": null,
+    "vote": null,
+    "center": "136"
+  },
+  {
+    "id": 691,
+    "name": "Abdullah Al Hossain",
+    "image": "1770841523.",
+    "league": "Am Janata Party",
+    "logo": "1769853544.jpg",
+    "party_id": 41,
+    "seat_id": 247,
+    "el_status": null,
+    "vote": null,
+    "center": "136"
+  },
+  {
+    "id": 692,
+    "name": "Nasreen Sultana",
+    "image": "1770841527.",
+    "league": "Amar Bangladesh Party (AB Party)",
+    "logo": "1769855528.jpg",
+    "party_id": 66,
+    "seat_id": 247,
+    "el_status": null,
+    "vote": null,
+    "center": "136"
+  },
+  {
+    "id": 693,
+    "name": "Bahni Bepari",
+    "image": "1770841533.",
+    "league": "Jatiya Party (JaPa)",
+    "logo": "1702196200.png",
+    "party_id": 5,
+    "seat_id": 247,
+    "el_status": null,
+    "vote": null,
+    "center": "136"
+  },
+  {
+    "id": 694,
+    "name": "Md. A. Awal",
+    "image": "1770841542.",
+    "league": "Islami Andolon Bangladesh",
+    "logo": "1769852567.png",
+    "party_id": 37,
+    "seat_id": 247,
+    "el_status": null,
+    "vote": null,
+    "center": "136"
+  },
+  {
+    "id": 695,
+    "name": "Md. Anichur Rahman",
+    "image": "1770841558.",
+    "league": "Bangladesh Cultural Liberation Front (Muktijot)",
+    "logo": "1769855708.png",
+    "party_id": 71,
+    "seat_id": 247,
+    "el_status": null,
+    "vote": null,
+    "center": "136"
+  },
+  {
+    "id": 696,
+    "name": "Md. Abu Hanif Hridoy",
+    "image": "1770841564.",
+    "league": "Bangladesh Republican Party (BRP)",
+    "logo": "1769855675.jpg",
+    "party_id": 70,
+    "seat_id": 247,
+    "el_status": null,
+    "vote": null,
+    "center": "136"
+  },
+  {
+    "id": 698,
+    "name": "Md. Zakir Hossain",
+    "image": "1770841580.",
+    "league": "Am Janata Party",
+    "logo": "1769853544.jpg",
+    "party_id": 41,
+    "seat_id": 247,
+    "el_status": null,
+    "vote": null,
+    "center": "136"
+  }
+]

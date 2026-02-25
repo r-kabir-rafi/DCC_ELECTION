@@ -1,0 +1,17 @@
+[
+  {
+    "id": 239,
+    "seat_no": 175,
+    "seat_name": "Dhaka-2",
+    "division_id": 3,
+    "total_voter": "419,215",
+    "male_voter": "217,908",
+    "female_voter": "201,298",
+    "total_center": "197",
+    "result_id": null,
+    "seats_area": "Keraniganj, Savar, ( Tetuljhora, Amin Bazar, Bhakurta ) Dhaka south city corporation ( 55, 56, 57 no. Ward )",
+    "yes": null,
+    "no": null,
+    "total_candidate": 3
+  }
+]

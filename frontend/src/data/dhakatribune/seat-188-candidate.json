@@ -1,0 +1,98 @@
+[
+  {
+    "id": 751,
+    "name": "Md. Shafiqul Rahman",
+    "image": "1770842293.",
+    "league": "Bangladesh Jamaat-e-Islami",
+    "logo": "1769852416.png",
+    "party_id": 36,
+    "seat_id": 267,
+    "el_status": null,
+    "vote": "85131",
+    "center": "128"
+  },
+  {
+    "id": 752,
+    "name": "Md. Shafiqul Islam Khan",
+    "image": "1770208092.jpg",
+    "league": "Bangladesh Nationalist Party (BNP)",
+    "logo": "1769852771.webp",
+    "party_id": 38,
+    "seat_id": 267,
+    "el_status": null,
+    "vote": "63517",
+    "center": "128"
+  },
+  {
+    "id": 753,
+    "name": "Md. Shamsul Haque",
+    "image": "1770842301.",
+    "league": "Jatiya Party (JaPa)",
+    "logo": "1702196200.png",
+    "party_id": 5,
+    "seat_id": 267,
+    "el_status": null,
+    "vote": "1421",
+    "center": "128"
+  },
+  {
+    "id": 746,
+    "name": "Ahmad Sajedul Haque",
+    "image": "1770842187.",
+    "league": "Communist Party of Bangladesh",
+    "logo": "1770214086.png",
+    "party_id": 47,
+    "seat_id": 267,
+    "el_status": null,
+    "vote": "796",
+    "center": "128"
+  },
+  {
+    "id": 749,
+    "name": "Md. Nilav Parvez",
+    "image": "1770842212.",
+    "league": "Am Janata Party",
+    "logo": "1769853544.jpg",
+    "party_id": 41,
+    "seat_id": 267,
+    "el_status": null,
+    "vote": "705",
+    "center": "128"
+  },
+  {
+    "id": 747,
+    "name": "Khan Shoaib Aman Ullah",
+    "image": "1770842198.",
+    "league": "Janata Party",
+    "logo": "1769856417.jpg",
+    "party_id": 84,
+    "seat_id": 267,
+    "el_status": null,
+    "vote": "378",
+    "center": "128"
+  },
+  {
+    "id": 750,
+    "name": "Mobarak Hossain",
+    "image": "1770842217.",
+    "league": "Bangladesh Supreme Party (BSP)",
+    "logo": "1769857390.jpg",
+    "party_id": 78,
+    "seat_id": 267,
+    "el_status": null,
+    "vote": "326",
+    "center": "128"
+  },
+  {
+    "id": 748,
+    "name": "Md. Ashfaqur Rahman",
+    "image": "1770842204.",
+    "league": "Bangladesh Jatiya Samajtantrik Dal (Bangladesh JASAD)",
+    "logo": "1769855648.png",
+    "party_id": 69,
+    "seat_id": 267,
+    "el_status": null,
+    "vote": "210",
+    "center": "128"
+  }
+]

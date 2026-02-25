@@ -1,0 +1,17 @@
+[
+  {
+    "id": 244,
+    "seat_no": 180,
+    "seat_name": "Dhaka-7",
+    "division_id": 3,
+    "total_voter": "479,376",
+    "male_voter": "248,481",
+    "female_voter": "230,883",
+    "total_center": "125",
+    "result_id": null,
+    "seats_area": "Dhaka South City Corporation ( 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 35, 36 no. Ward )",
+    "yes": null,
+    "no": null,
+    "total_candidate": 11
+  }
+]

@@ -1,0 +1,122 @@
+[
+  {
+    "id": 706,
+    "name": "Md. Nahid Islam",
+    "image": "1770206478.jpg",
+    "league": "National Citizen Party (NCP)",
+    "logo": "1769855381.jpg",
+    "party_id": 63,
+    "seat_id": 248,
+    "el_status": null,
+    "vote": "93872",
+    "center": "163"
+  },
+  {
+    "id": 700,
+    "name": "M. A. Qayyum",
+    "image": "1770206311.jpg",
+    "league": "Bangladesh Nationalist Party (BNP)",
+    "logo": "1769852771.webp",
+    "party_id": 38,
+    "seat_id": 248,
+    "el_status": null,
+    "vote": "91833",
+    "center": "163"
+  },
+  {
+    "id": 709,
+    "name": "Sheikh Md. Fazle Bari Masud",
+    "image": "1770841681.",
+    "league": "Islami Andolon Bangladesh",
+    "logo": "1769852567.png",
+    "party_id": 37,
+    "seat_id": 248,
+    "el_status": null,
+    "vote": "4375",
+    "center": "163"
+  },
+  {
+    "id": 708,
+    "name": "Shamim Ahmed",
+    "image": "1770841672.",
+    "league": "Jatiya Party (JaPa)",
+    "logo": "1702196200.png",
+    "party_id": 5,
+    "seat_id": 248,
+    "el_status": null,
+    "vote": "1048",
+    "center": "163"
+  },
+  {
+    "id": 701,
+    "name": "Kohinur Akter Bithi",
+    "image": "1770841632.",
+    "league": "Independent",
+    "logo": "1704551148.jpg",
+    "party_id": 32,
+    "seat_id": 248,
+    "el_status": null,
+    "vote": "794",
+    "center": "163"
+  },
+  {
+    "id": 705,
+    "name": "Md. Zakir Hossain",
+    "image": "1770841657.",
+    "league": "Bangladesh Republican Party (BRP)",
+    "logo": "1769855675.jpg",
+    "party_id": 70,
+    "seat_id": 248,
+    "el_status": null,
+    "vote": "283",
+    "center": "163"
+  },
+  {
+    "id": 707,
+    "name": "Md. Mizanur Rahman",
+    "image": "1770841667.",
+    "league": "National People's Party (NPP)",
+    "logo": "1769853961.png",
+    "party_id": 46,
+    "seat_id": 248,
+    "el_status": null,
+    "vote": "241",
+    "center": "163"
+  },
+  {
+    "id": 702,
+    "name": "Kazi Md. Shahidullah",
+    "image": "1770841638.",
+    "league": "Bangladesh Cultural Liberation Front (Muktijot)",
+    "logo": "1769855708.png",
+    "party_id": 71,
+    "seat_id": 248,
+    "el_status": null,
+    "vote": "196",
+    "center": "163"
+  },
+  {
+    "id": 703,
+    "name": "Md. Abdul Qader",
+    "image": "1770841645.",
+    "league": "Gono Forum",
+    "logo": "1770206382.jpg",
+    "party_id": 115,
+    "seat_id": 248,
+    "el_status": null,
+    "vote": "130",
+    "center": "163"
+  },
+  {
+    "id": 704,
+    "name": "Md. Arifur Rahman",
+    "image": "1770841651.",
+    "league": "Gono Odhikar Parishad (GOP)",
+    "logo": "1770210478.jpeg",
+    "party_id": 39,
+    "seat_id": 248,
+    "el_status": null,
+    "vote": "81",
+    "center": "163"
+  }
+]

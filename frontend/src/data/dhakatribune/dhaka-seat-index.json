@@ -1,0 +1,182 @@
+[
+  {
+    "seat_no": "174",
+    "internal_id": "238",
+    "seat_name": "Dhaka-1",
+    "total_voter": "545,140",
+    "total_center": "184",
+    "home_is_json": true,
+    "candidate_is_json": true
+  },
+  {
+    "seat_no": "175",
+    "internal_id": "239",
+    "seat_name": "Dhaka-2",
+    "total_voter": "419,215",
+    "total_center": "197",
+    "home_is_json": true,
+    "candidate_is_json": true
+  },
+  {
+    "seat_no": "176",
+    "internal_id": "240",
+    "seat_name": "Dhaka-3",
+    "total_voter": "362,159",
+    "total_center": "126",
+    "home_is_json": true,
+    "candidate_is_json": true
+  },
+  {
+    "seat_no": "177",
+    "internal_id": "241",
+    "seat_name": "Dhaka-4",
+    "total_voter": "362,506",
+    "total_center": "77",
+    "home_is_json": true,
+    "candidate_is_json": true
+  },
+  {
+    "seat_no": "178",
+    "internal_id": "242",
+    "seat_name": "Dhaka-5",
+    "total_voter": "419,996",
+    "total_center": "187",
+    "home_is_json": true,
+    "candidate_is_json": true
+  },
+  {
+    "seat_no": "179",
+    "internal_id": "243",
+    "seat_name": "Dhaka-6",
+    "total_voter": "292,283",
+    "total_center": "98",
+    "home_is_json": true,
+    "candidate_is_json": true
+  },
+  {
+    "seat_no": "180",
+    "internal_id": "244",
+    "seat_name": "Dhaka-7",
+    "total_voter": "479,376",
+    "total_center": "125",
+    "home_is_json": true,
+    "candidate_is_json": true
+  },
+  {
+    "seat_no": "181",
+    "internal_id": "245",
+    "seat_name": "Dhaka-8",
+    "total_voter": "275,471",
+    "total_center": "110",
+    "home_is_json": true,
+    "candidate_is_json": true
+  },
+  {
+    "seat_no": "182",
+    "internal_id": "246",
+    "seat_name": "Dhaka-9",
+    "total_voter": "469,360",
+    "total_center": "169",
+    "home_is_json": true,
+    "candidate_is_json": true
+  },
+  {
+    "seat_no": "183",
+    "internal_id": "247",
+    "seat_name": "Dhaka-10",
+    "total_voter": "388,660",
+    "total_center": "119",
+    "home_is_json": true,
+    "candidate_is_json": true
+  },
+  {
+    "seat_no": "184",
+    "internal_id": "248",
+    "seat_name": "Dhaka-11",
+    "total_voter": "439,078",
+    "total_center": "162",
+    "home_is_json": true,
+    "candidate_is_json": true
+  },
+  {
+    "seat_no": "185",
+    "internal_id": "251",
+    "seat_name": "Dhaka-12",
+    "total_voter": "333,320",
+    "total_center": "140",
+    "home_is_json": true,
+    "candidate_is_json": true
+  },
+  {
+    "seat_no": "186",
+    "internal_id": "253",
+    "seat_name": "Dhaka-13",
+    "total_voter": "408,791",
+    "total_center": "135",
+    "home_is_json": true,
+    "candidate_is_json": true
+  },
+  {
+    "seat_no": "187",
+    "internal_id": "266",
+    "seat_name": "Dhaka-14",
+    "total_voter": "456,044",
+    "total_center": "166",
+    "home_is_json": true,
+    "candidate_is_json": true
+  },
+  {
+    "seat_no": "188",
+    "internal_id": "267",
+    "seat_name": "Dhaka-15",
+    "total_voter": "351,718",
+    "total_center": "133",
+    "home_is_json": true,
+    "candidate_is_json": true
+  },
+  {
+    "seat_no": "189",
+    "internal_id": "268",
+    "seat_name": "Dhaka-16",
+    "total_voter": "400,499",
+    "total_center": "137",
+    "home_is_json": true,
+    "candidate_is_json": true
+  },
+  {
+    "seat_no": "190",
+    "internal_id": "269",
+    "seat_name": "Dhaka-17",
+    "total_voter": "333,777",
+    "total_center": "124",
+    "home_is_json": true,
+    "candidate_is_json": true
+  },
+  {
+    "seat_no": "191",
+    "internal_id": "270",
+    "seat_name": "Dhaka-18",
+    "total_voter": "613,883",
+    "total_center": "217",
+    "home_is_json": true,
+    "candidate_is_json": true
+  },
+  {
+    "seat_no": "192",
+    "internal_id": "271",
+    "seat_name": "Dhaka-19",
+    "total_voter": "747,070",
+    "total_center": "292",
+    "home_is_json": true,
+    "candidate_is_json": true
+  },
+  {
+    "seat_no": "193",
+    "internal_id": "272",
+    "seat_name": "Dhaka-20",
+    "total_voter": "376,639",
+    "total_center": "149",
+    "home_is_json": true,
+    "candidate_is_json": true
+  }
+]

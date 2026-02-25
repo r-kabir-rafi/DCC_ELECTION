@@ -1,0 +1,17 @@
+[
+  {
+    "id": 248,
+    "seat_no": 184,
+    "seat_name": "Dhaka-11",
+    "division_id": 3,
+    "total_voter": "439,078",
+    "male_voter": "222,877",
+    "female_voter": "216,198",
+    "total_center": "162",
+    "result_id": null,
+    "seats_area": "Dhaka North City Corporation ( 21, 22, 23, 37, 38, 39, 40, 41, 42 no Ward )",
+    "yes": null,
+    "no": null,
+    "total_candidate": 10
+  }
+]

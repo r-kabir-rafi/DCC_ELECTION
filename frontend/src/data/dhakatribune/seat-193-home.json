@@ -1,0 +1,17 @@
+[
+  {
+    "id": 272,
+    "seat_no": 193,
+    "seat_name": "Dhaka-20",
+    "division_id": 3,
+    "total_voter": "376,639",
+    "male_voter": "187,835",
+    "female_voter": "188,802",
+    "total_center": "149",
+    "result_id": null,
+    "seats_area": "Dhamrai",
+    "yes": null,
+    "no": null,
+    "total_candidate": 6
+  }
+]

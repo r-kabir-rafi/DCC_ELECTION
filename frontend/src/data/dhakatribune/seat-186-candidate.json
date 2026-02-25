@@ -1,0 +1,110 @@
+[
+  {
+    "id": 726,
+    "name": "Bobby Hajjaj",
+    "image": "1770207452.jpg",
+    "league": "Bangladesh Nationalist Party (BNP)",
+    "logo": "1769852771.webp",
+    "party_id": 38,
+    "seat_id": 253,
+    "el_status": null,
+    "vote": "88387",
+    "center": "139"
+  },
+  {
+    "id": 729,
+    "name": "Md. Mamunul Haque",
+    "image": "1770207520.jpg",
+    "league": "Bangladesh Khelafat Majlish",
+    "logo": "1769854518.jpg",
+    "party_id": 50,
+    "seat_id": 253,
+    "el_status": null,
+    "vote": "86067",
+    "center": "139"
+  },
+  {
+    "id": 732,
+    "name": "Sheikh Md. Rabiul Islam",
+    "image": "1770841955.",
+    "league": "Independent",
+    "logo": "1704551148.jpg",
+    "party_id": 32,
+    "seat_id": 253,
+    "el_status": null,
+    "vote": "972",
+    "center": "139"
+  },
+  {
+    "id": 733,
+    "name": "Sohel Rana",
+    "image": "1770841962.",
+    "league": "Independent",
+    "logo": "1704551148.jpg",
+    "party_id": 32,
+    "seat_id": 253,
+    "el_status": null,
+    "vote": "711",
+    "center": "139"
+  },
+  {
+    "id": 725,
+    "name": "Fatema Akter Munia",
+    "image": "1770841917.",
+    "league": "Insaniyat Biplob Bangladesh",
+    "logo": "1770207181.jpg",
+    "party_id": 116,
+    "seat_id": 253,
+    "el_status": null,
+    "vote": "513",
+    "center": "139"
+  },
+  {
+    "id": 728,
+    "name": "Md. Khalekuzzaman",
+    "image": "1770841932.",
+    "league": "Bangladesh Socialist Party (BASAD)",
+    "logo": "1769854432.png",
+    "party_id": 48,
+    "seat_id": 253,
+    "el_status": null,
+    "vote": "486",
+    "center": "139"
+  },
+  {
+    "id": 731,
+    "name": "Shahriar Iftekhar",
+    "image": "1770841948.",
+    "league": "Bangladesh Muslim League",
+    "logo": "1769855087.png",
+    "party_id": 59,
+    "seat_id": 253,
+    "el_status": null,
+    "vote": "464",
+    "center": "139"
+  },
+  {
+    "id": 727,
+    "name": "Mizanur Rahman",
+    "image": "1770841923.",
+    "league": "Gono Odhikar Parishad (GOP)",
+    "logo": "1770210478.jpeg",
+    "party_id": 39,
+    "seat_id": 253,
+    "el_status": null,
+    "vote": "336",
+    "center": "139"
+  },
+  {
+    "id": 730,
+    "name": "Md. Shahabuddin",
+    "image": "1770841938.",
+    "league": "Bangladesh Minority People’s Party (BMJP)",
+    "logo": "1770204028.jpg",
+    "party_id": 113,
+    "seat_id": 253,
+    "el_status": null,
+    "vote": "331",
+    "center": "139"
+  }
+]
