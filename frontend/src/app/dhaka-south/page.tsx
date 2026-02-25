@@ -2,13 +2,11 @@ import MapView from '@/components/MapView';
 
 export default function DhakaSouthPage() {
   return (
-    <div className="flex h-full w-full flex-col bg-white">
-      <div className="border-b border-gray-200 px-6 py-4">
-        <h1 className="text-3xl font-bold tracking-tight text-gray-900">Dhaka South City Corporation</h1>
-      </div>
-      <div className="flex-1">
+    <section className="flex h-full w-full flex-col bg-white px-6 py-4">
+      <h1 className="pb-3 text-3xl font-bold tracking-tight text-gray-900">Dhaka South City Corporation</h1>
+      <div className="min-h-0 flex-1">
         <MapView zoneFilter="DSCC" />
       </div>
-    </div>
+    </section>
   );
 }

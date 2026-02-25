@@ -6,7 +6,7 @@ export default function MapView({ zoneFilter }: { zoneFilter?: 'DNCC' | 'DSCC' }
       <object
         data="/prothomalo-dhaka-map.svg"
         type="image/svg+xml"
-        className="h-full min-h-[400px] w-full rounded-lg bg-white object-contain"
+        className="h-full min-h-[400px] w-full scale-90 rounded-lg bg-white"
         aria-label="Dhaka constituency map"
       >
         Dhaka constituency map

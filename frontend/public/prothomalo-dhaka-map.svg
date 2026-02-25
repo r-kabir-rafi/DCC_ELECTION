@@ -8,6 +8,10 @@
 	.st3{font-size:10px;}
 	.st4{fill:none;stroke:#BF0056;stroke-width:3;stroke-miterlimit:10;}
 	a:hover .st0{fill:#93c5fd;stroke:#1d4ed8;}
+	/* DNCC constituencies: Dhaka-11 to Dhaka-18 */
+	#seat_184,#seat_185,#seat_186,#seat_187,#seat_188,#seat_189,#seat_190,#seat_191{stroke:#1d4ed8;stroke-width:2.2;}
+	/* DSCC constituencies: Dhaka-2, Dhaka-4 to Dhaka-10 */
+	#seat_175,#seat_177,#seat_178,#seat_179,#seat_180,#seat_181,#seat_182,#seat_183{stroke:#be123c;stroke-width:2.2;}
 </style>
 <a href="/constituency/174">
 <polyline id="seat_174" class="st0" points="143.5,248.7 143.5,250.1 142,250.1 142,251.6 143.5,251.6 143.5,260.2 142,260.2 139.1,260.2 
