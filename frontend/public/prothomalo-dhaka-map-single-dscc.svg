@@ -14,6 +14,8 @@
 	#seat_175,#seat_177,#seat_178,#seat_179,#seat_180,#seat_181,#seat_182,#seat_183{stroke:#be123c;stroke-width:2.2;}
 	/* Excluded from city-only view: Dhaka-1, Dhaka-3, Dhaka-19, Dhaka-20 */
 	a[href="/constituency/174"],a[href="/constituency/176"],a[href="/constituency/192"],a[href="/constituency/193"]{display:none;}
+	/* DSCC-only view */
+	#seat_184,#seat_185,#seat_186,#seat_187,#seat_188,#seat_189,#seat_190,#seat_191{display:none;}
 </style>
 <a target="_top" href="/constituency/174">
 <polyline id="seat_174" class="st0" points="143.5,248.7 143.5,250.1 142,250.1 142,251.6 143.5,251.6 143.5,260.2 142,260.2 139.1,260.2 

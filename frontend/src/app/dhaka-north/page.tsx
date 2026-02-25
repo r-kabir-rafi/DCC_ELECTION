@@ -9,8 +9,10 @@ export default function DhakaNorthPage() {
     <section className="h-full w-full overflow-y-auto bg-white px-6 py-4">
       <div className="mx-auto w-full max-w-7xl space-y-6">
         <h1 className="pb-3 text-3xl font-bold tracking-tight text-gray-900">Dhaka North City Corporation</h1>
-        <ConstituenciesMapSingleSection />
-        <CityGisMapSection zoneFilter="DNCC" />
+        <div className="grid items-start gap-6 lg:grid-cols-[340px_minmax(0,1fr)]">
+          <ConstituenciesMapSingleSection compact src="/prothomalo-dhaka-map-single-dncc.svg" leftShiftClass="translate-x-0" />
+          <CityGisMapSection zoneFilter="DNCC" />
+        </div>
         <CityConstituencyWardSection zone="DNCC" />
         <CityCorporationElectionTable zone="DNCC" />
         <ZoomToDhakaSection />

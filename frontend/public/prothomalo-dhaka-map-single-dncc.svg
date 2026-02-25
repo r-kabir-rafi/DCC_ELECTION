@@ -1,5 +1,5 @@
                                 <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 viewBox="10 70 260 250" style="enable-background:new 0 0 320 385.9;" xml:space="preserve">
+	 viewBox="120 90 170 220" style="enable-background:new 0 0 320 385.9;" xml:space="preserve">
 <style type="text/css">
 	.seat-banner .maps svg{margin-top:50px;}
 	.st0{fill:#dbeafe;stroke:#1e3a8a;stroke-width:1.2;stroke-miterlimit:10;cursor:pointer;transition:fill .15s ease,stroke .15s ease;}
@@ -14,6 +14,8 @@
 	#seat_175,#seat_177,#seat_178,#seat_179,#seat_180,#seat_181,#seat_182,#seat_183{stroke:#be123c;stroke-width:2.2;}
 	/* Excluded from city-only view: Dhaka-1, Dhaka-3, Dhaka-19, Dhaka-20 */
 	a[href="/constituency/174"],a[href="/constituency/176"],a[href="/constituency/192"],a[href="/constituency/193"]{display:none;}
+	/* DNCC-only view */
+	#seat_175,#seat_177,#seat_178,#seat_179,#seat_180,#seat_181,#seat_182,#seat_183{display:none;}
 </style>
 <a target="_top" href="/constituency/174">
 <polyline id="seat_174" class="st0" points="143.5,248.7 143.5,250.1 142,250.1 142,251.6 143.5,251.6 143.5,260.2 142,260.2 139.1,260.2 

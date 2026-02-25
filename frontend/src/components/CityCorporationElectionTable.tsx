@@ -129,8 +129,13 @@ export default function CityCorporationElectionTable({ zone }: { zone: CityZone 
       : "All DNCC direct mayoral elections and by-election available on Wikipedia are included (2015, 2019 by-election, 2020).";
 
   return (
-    <section className="rounded-xl border border-gray-200 bg-white p-4 shadow-sm">
-      <h2 className="text-xl font-semibold text-gray-900">Wikipedia Election Results Summary</h2>
+    <section className="rounded-xl border border-gray-200 bg-white p-4 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg dark:bg-slate-900">
+      <div className="flex items-center justify-between gap-3">
+        <h2 className="text-xl font-semibold text-gray-900">Wikipedia Election Results Summary</h2>
+        <span className="rounded-full bg-amber-100 px-2.5 py-1 text-xs font-semibold text-amber-700 dark:bg-amber-500/20 dark:text-amber-200">
+          Results
+        </span>
+      </div>
       <p className="mt-1 text-sm text-gray-600">
         Registered voters, votes cast, winner/runner-up, party, and total wards won.
       </p>
@@ -156,7 +161,7 @@ export default function CityCorporationElectionTable({ zone }: { zone: CityZone 
           </thead>
           <tbody>
             {rows.map((row) => (
-              <tr key={`${zone}-${row.year}`} className="border-t border-gray-100 align-top">
+              <tr key={`${zone}-${row.year}`} className="border-t border-gray-100 align-top transition-colors hover:bg-indigo-50/50">
                 <td className="px-4 py-3 font-semibold text-gray-900">{row.year}</td>
                 <td className="px-4 py-3 text-gray-700">{row.registeredVoters}</td>
                 <td className="px-4 py-3 text-gray-700">{row.votesCast}</td>

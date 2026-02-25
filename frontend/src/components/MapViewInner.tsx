@@ -32,7 +32,7 @@ function FitToData({ data }: { data: BoundaryFeatureCollection }) {
     const layer = L.geoJSON(data as GeoJsonObject);
     const bounds = layer.getBounds();
     if (bounds.isValid()) {
-      map.fitBounds(bounds.pad(0.25), { animate: false });
+      map.fitBounds(bounds.pad(0.08), { animate: false });
     }
   }, [data, map]);
 

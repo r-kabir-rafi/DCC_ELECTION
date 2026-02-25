@@ -15,7 +15,7 @@ export default function Home() {
       
       <div className="relative z-10 mx-auto max-w-7xl space-y-4 text-center">
         <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-gray-900 leading-tight">
-          Dhaka Election <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-blue-500">Atlas</span>
+          Dhaka City Corporation <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-blue-500">Election</span>
         </h1>
         
         <p className="mx-auto max-w-3xl text-sm text-gray-600 md:text-base">
