@@ -4,7 +4,7 @@ import { useAppStore } from '@/store/useAppStore';
 import boundaries from '@/data/boundaries.sample.geojson';
 import { Search } from 'lucide-react';
 
-export default function SearchBox() {
+export default function SearchBox({ zoneFilter }: { zoneFilter?: 'DNCC' | 'DSCC' }) {
   const { setSelectedConstituency } = useAppStore();
   const [query, setQuery] = useState('');
   const [results, setResults] = useState<{id: string, name: string}[]>([]);
@@ -18,6 +18,7 @@ export default function SearchBox() {
     
     const features = boundaries.features || [];
     const matched = features
+      .filter((f: any) => !zoneFilter || f.properties.zone === zoneFilter)
       .map((f: any) => ({
         id: f.properties.id,
         name: f.properties.name
@@ -28,7 +29,7 @@ export default function SearchBox() {
       );
       
     setResults(matched.slice(0, 5));
-  }, [query]);
+  }, [query, zoneFilter]);
 
   // Click outside to close
   useEffect(() => {
@@ -42,7 +43,7 @@ export default function SearchBox() {
   }, []);
 
   return (
-    <div className="absolute top-6 left-6 z-[400] w-80 md:w-96" ref={containerRef}>
+    <div className="absolute top-6 left-6 z-[400] w-[calc(100vw-3rem)] max-w-sm md:max-w-md" ref={containerRef}>
       <div className="relative">
         <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
           <Search className="h-5 w-5 text-gray-400" />
