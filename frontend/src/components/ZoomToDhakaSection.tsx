@@ -1,3 +1,5 @@
+import BdToDccZoomMap from '@/components/BdToDccZoomMap';
+
 export default function ZoomToDhakaSection() {
   return (
     <section className="rounded-xl border border-gray-200 bg-white p-5 shadow-sm">
@@ -34,6 +36,8 @@ export default function ZoomToDhakaSection() {
           www.gis.gov.bd
         </a>
       </p>
+
+      <BdToDccZoomMap />
     </section>
   );
 }
