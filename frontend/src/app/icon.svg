@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <style>
+    :root {
+      --bg: #e0e7ff;
+      --ring: #4338ca;
+      --dot: #0f172a;
+      --pulse: #3b82f6;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: #0f172a;
+        --ring: #60a5fa;
+        --dot: #e2e8f0;
+        --pulse: #22d3ee;
+      }
+    }
+  </style>
+
+  <rect width="128" height="128" rx="26" fill="var(--bg)" />
+
+  <circle cx="64" cy="64" r="36" fill="none" stroke="var(--ring)" stroke-width="9">
+    <animateTransform
+      attributeName="transform"
+      attributeType="XML"
+      type="rotate"
+      from="0 64 64"
+      to="360 64 64"
+      dur="5s"
+      repeatCount="indefinite"
+    />
+  </circle>
+
+  <circle cx="64" cy="64" r="11" fill="var(--dot)" />
+  <circle cx="95" cy="43" r="6" fill="var(--pulse)">
+    <animate attributeName="r" values="4;7;4" dur="1.2s" repeatCount="indefinite" />
+    <animate attributeName="opacity" values="0.5;1;0.5" dur="1.2s" repeatCount="indefinite" />
+  </circle>
+</svg>

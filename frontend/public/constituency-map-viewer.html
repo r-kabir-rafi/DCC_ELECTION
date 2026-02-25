@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Constituency Focus Map</title>
+    <style>
+      html,
+      body {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        background: #f8fafc;
+      }
+      #root {
+        width: 100%;
+        height: 100%;
+      }
+      svg {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+      .dim-seat {
+        opacity: 0.25;
+      }
+      .focus-seat {
+        opacity: 1 !important;
+        stroke: #0f172a !important;
+        stroke-width: 3.4 !important;
+        fill: #fde68a !important;
+      }
+      .focus-seat text {
+        opacity: 1 !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      (async function () {
+        const params = new URLSearchParams(window.location.search);
+        const seat = params.get("seat");
+        const seatId = seat ? "seat_" + seat : null;
+
+        const root = document.getElementById("root");
+        const res = await fetch("/prothomalo-dhaka-map-single.svg", { cache: "no-store" });
+        const svgText = await res.text();
+        const doc = new DOMParser().parseFromString(svgText, "image/svg+xml");
+        const svg = doc.documentElement;
+
+        // Keep viewer focused only; disable navigation.
+        svg.querySelectorAll("a").forEach((a) => a.removeAttribute("href"));
+
+        const focus = seatId ? svg.querySelector("#" + seatId) : null;
+
+        if (focus) {
+          // Dim everything then highlight selected constituency.
+          svg.querySelectorAll(".st0").forEach((node) => node.classList.add("dim-seat"));
+          focus.classList.remove("dim-seat");
+          focus.classList.add("focus-seat");
+
+          // Zoom viewBox to the selected seat bounds with padding.
+          const box = focus.getBBox();
+          const padding = 22;
+          const x = Math.max(0, box.x - padding);
+          const y = Math.max(0, box.y - padding);
+          const w = Math.max(50, box.width + padding * 2);
+          const h = Math.max(50, box.height + padding * 2);
+          svg.setAttribute("viewBox", `${x} ${y} ${w} ${h}`);
+        }
+
+        root.appendChild(svg);
+      })();
+    </script>
+  </body>
+</html>

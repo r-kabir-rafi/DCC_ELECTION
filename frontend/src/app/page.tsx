@@ -1,15 +1,18 @@
 import Link from "next/link";
 import { Map, MapPin } from "lucide-react";
+import ConstituencyQuickNav from "@/components/ConstituencyQuickNav";
+import ConstituenciesMapSingleSection from "@/components/ConstituenciesMapSingleSection";
+import CityGisMapSection from "@/components/CityGisMapSection";
 
 export default function Home() {
   return (
-    <div className="flex-1 flex flex-col items-center justify-center p-6 bg-gradient-to-br from-indigo-50 via-white to-blue-50 relative overflow-hidden">
+    <div className="flex-1 overflow-y-auto bg-gradient-to-br from-indigo-50 via-white to-blue-50 p-6">
       
       {/* Abstract Background Shapes */}
-      <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-indigo-200/40 rounded-full blur-3xl" />
-      <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-blue-200/40 rounded-full blur-3xl" />
+      <div className="fixed top-[-10%] left-[-10%] h-[40%] w-[40%] rounded-full bg-indigo-200/40 blur-3xl" />
+      <div className="fixed bottom-[-10%] right-[-10%] h-[50%] w-[50%] rounded-full bg-blue-200/40 blur-3xl" />
       
-      <div className="max-w-4xl text-center space-y-8 z-10 relative">
+      <div className="relative z-10 mx-auto max-w-5xl space-y-8 text-center">
         <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-gray-900 leading-tight">
           Dhaka Election <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-blue-500">Atlas</span>
         </h1>
@@ -43,6 +46,10 @@ export default function Home() {
             </Link>
           </div>
         </div>
+
+        <ConstituencyQuickNav />
+        <ConstituenciesMapSingleSection />
+        <CityGisMapSection />
       </div>
     </div>
   );
