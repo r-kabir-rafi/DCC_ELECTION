@@ -1,164 +1,126 @@
 'use client';
 
-import { useEffect, useRef, useMemo } from 'react';
-import { MapContainer, TileLayer, GeoJSON, useMap } from 'react-leaflet';
+import { useMemo, useEffect } from 'react';
+import { GeoJSON, MapContainer, TileLayer, useMap } from 'react-leaflet';
+import { useRouter } from 'next/navigation';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import { useAppStore } from '@/store/useAppStore';
-import { getLatestResult } from '@/lib/data';
-import boundariesData from '@/data/boundaries.sample.json';
-import { getPartyColor } from '@/lib/geo';
+import type { FeatureCollection, Feature, GeoJsonObject, Geometry } from 'geojson';
+import dccData from '@/data/dcc_wards.json';
 
-// We need a wrapper component to handle map bounds and interactions based on Zustand state.
-function MapController({ geoJsonData, zoneFilter }: { geoJsonData: any; zoneFilter?: 'DNCC' | 'DSCC' }) {
+type Zone = 'DNCC' | 'DSCC';
+
+type BoundaryProperties = {
+  Name?: string | null;
+  Name_1?: string | null;
+};
+
+type BoundaryFeature = Feature<Geometry, BoundaryProperties>;
+type BoundaryFeatureCollection = FeatureCollection<Geometry, BoundaryProperties>;
+
+const typedBoundaries = dccData as BoundaryFeatureCollection;
+
+function getZone(feature: BoundaryFeature): Zone {
+  const raw = `${feature.properties.Name ?? ''} ${feature.properties.Name_1 ?? ''}`.toLowerCase();
+  return raw.includes('north') ? 'DNCC' : 'DSCC';
+}
+
+function FitToData({ data }: { data: BoundaryFeatureCollection }) {
   const map = useMap();
-  const { mode, selectedConstituency, setSelectedConstituency } = useAppStore();
-  const geoJsonRef = useRef<L.GeoJSON>(null);
-
-  // Compute filtered data
-  const filteredData = useMemo(() => {
-    if (!zoneFilter) return geoJsonData;
-    return {
-      ...geoJsonData,
-      features: geoJsonData.features.filter((f: any) => f.properties.zone === zoneFilter)
-    };
-  }, [geoJsonData, zoneFilter]);
 
   useEffect(() => {
-    if (geoJsonRef.current) {
-        // Clear and add new data to ensure styles refresh on mode change.
-        geoJsonRef.current.clearLayers();
-        geoJsonRef.current.addData(filteredData as any);
+    const layer = L.geoJSON(data as GeoJsonObject);
+    const bounds = layer.getBounds();
+    if (bounds.isValid()) {
+      map.fitBounds(bounds.pad(0.25), { animate: false });
     }
-  }, [mode, filteredData]);
+  }, [data, map]);
 
-  // Handle selected constituency zooming and outlining
+  return null;
+}
+
+function RefreshMapSize() {
+  const map = useMap();
+
   useEffect(() => {
-    if (!selectedConstituency || !geoJsonRef.current) return;
-
-    const layers = geoJsonRef.current.getLayers() as L.Path[];
-    const targetLayer = layers.find((layer: any) => layer.feature.properties.id === selectedConstituency);
-
-    if (targetLayer && typeof (targetLayer as any).getBounds === 'function') {
-      const bounds = (targetLayer as any).getBounds();
-      map.fitBounds(bounds, { padding: [50, 50], animate: true, duration: 1 });
-      
-      // Update styles for selection
-      layers.forEach((layer) => {
-        const isActive = (layer as any).feature.properties.id === selectedConstituency;
-        if (isActive) {
-           (layer as any).setStyle({
-               weight: 4,
-               color: '#1e1b4b', // dark border
-               dashArray: '',
-               fillOpacity: 0.9
-           });
-           (layer as any).bringToFront();
-        } else {
-           geoJsonRef.current?.resetStyle(layer as any);
-        }
-      });
-    }
-    if (!targetLayer && zoneFilter) {
-      setSelectedConstituency(null);
-    }
-
-  }, [selectedConstituency, map, setSelectedConstituency, zoneFilter]);
-
-  const styleFeature = (feature: any) => {
-    const defaultStyle = {
-      fillColor: '#E5E7EB', // grey for no data
-      weight: 1.5,
-      opacity: 1,
-      color: '#FFFFFF',
-      dashArray: '3',
-      fillOpacity: 0.7
+    const t = setTimeout(() => map.invalidateSize(), 80);
+    window.addEventListener('resize', map.invalidateSize);
+    return () => {
+      clearTimeout(t);
+      window.removeEventListener('resize', map.invalidateSize);
     };
+  }, [map]);
 
-    if (!feature.properties) return defaultStyle;
+  return null;
+}
 
-    const result = getLatestResult(mode, feature.properties.id);
-    if (!result) return defaultStyle;
+export default function MapViewInner({ zoneFilter }: { zoneFilter?: Zone }) {
+  const router = useRouter();
 
+  const filteredData = useMemo<BoundaryFeatureCollection>(() => {
+    if (!zoneFilter) return typedBoundaries;
     return {
-      ...defaultStyle,
-      fillColor: getPartyColor(result.winner_party),
-      fillOpacity: 0.8,
-      color: '#f8fafc', // light border
-      weight: 1.5,
+      ...typedBoundaries,
+      features: typedBoundaries.features.filter((feature) => getZone(feature) === zoneFilter),
+    };
+  }, [zoneFilter]);
+
+  const styleFeature = (feature?: BoundaryFeature) => {
+    if (!feature) {
+      return { fillColor: '#e2e8f0', color: '#475569', weight: 1.2, fillOpacity: 0.75 };
+    }
+
+    const isNorth = getZone(feature) === 'DNCC';
+    return {
+      fillColor: isNorth ? '#dcfce7' : 'transparent',
+      color: isNorth ? '#15803d' : '#be123c',
+      weight: isNorth ? 2 : 3,
+      fillOpacity: isNorth ? 0.85 : 0,
+      fill: isNorth,
     };
   };
 
-  const onEachFeature = (feature: any, layer: L.Layer) => {
-    // Tooltip
-    if (feature.properties && feature.properties.name) {
-        const result = getLatestResult(mode, feature.properties.id);
-        const winnerText = result ? `<br/><span style="color:${getPartyColor(result.winner_party)}; font-weight:bold">${result.winner_party}</span>` : '<br/><span style="color:#9CA3AF">No data</span>';
-        const tooltipContent = `<div class="text-center font-sans tracking-tight"><strong class="text-sm">${feature.properties.name}</strong>${winnerText}</div>`;
-        layer.bindTooltip(tooltipContent, {
-            sticky: true,
-            className: 'custom-tooltip shadow-lg rounded-xl border-none',
-            offset: [0, -5] // Offset tooltip slightly above pointer
-        });
-    }
+  const onEachFeature = (feature: BoundaryFeature, layer: L.Layer) => {
+    const pathLayer = layer as L.Path;
+    const zone = getZone(feature);
+    const label = zone === 'DNCC' ? 'Dhaka North City Corporation' : 'Dhaka South City Corporation';
 
-    layer.on({
-      mouseover: (e) => {
-        const target = e.target;
-        if (target.feature?.properties?.id !== useAppStore.getState().selectedConstituency) {
-            target.setStyle({
-                weight: 3,
-                color: '#6366f1',
-                dashArray: '',
-                fillOpacity: 0.9
-            });
-            target.bringToFront();
-        }
-      },
-      mouseout: (e) => {
-         const target = e.target;
-         if (target.feature?.properties?.id !== useAppStore.getState().selectedConstituency) {
-             geoJsonRef.current?.resetStyle(target);
-         }
-      },
-      click: (e) => {
-        setSelectedConstituency(feature.properties.id);
-      }
+    layer.bindTooltip(label, { sticky: true });
+
+    layer.on('mouseover', () => {
+      pathLayer.setStyle({ weight: 3.2, fillOpacity: 1 });
+    });
+
+    layer.on('mouseout', () => {
+      pathLayer.setStyle(styleFeature(feature));
+    });
+
+    layer.on('click', () => {
+      router.push(zone === 'DNCC' ? '/dhaka-north' : '/dhaka-south');
     });
   };
 
   return (
-    <GeoJSON
-      ref={geoJsonRef}
-      data={filteredData as any}
-      style={styleFeature}
-      onEachFeature={onEachFeature}
-    />
-  );
-}
-
-export default function MapView({ zoneFilter }: { zoneFilter?: 'DNCC' | 'DSCC' }) {
-  // Approximate center of Dhaka
-  const center: [number, number] = [23.83, 90.41]; 
-  
-  return (
-    <div className="w-full h-full relative z-0">
-      <MapContainer 
-        center={center} 
-        zoom={12} 
+    <div className="h-full min-h-[400px] w-full overflow-hidden rounded-lg border border-gray-200 bg-white">
+      <MapContainer
+        center={[23.82, 90.4]}
+        zoom={11}
         style={{ height: '100%', width: '100%' }}
-        zoomControl={false}
+        zoomControl
+        scrollWheelZoom
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          url="https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png" // Clean minimal basemap
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-        {/* We add labels as a separate layer on top so they render above polygons if possible (though CartoDB light_all is usually fine too, this looks cleaner) */}
-        <TileLayer
-          url="https://{s}.basemaps.cartocdn.com/light_only_labels/{z}/{x}/{y}{r}.png"
-          zIndex={100}
+        <RefreshMapSize />
+        <FitToData data={filteredData} />
+        <GeoJSON
+          key={zoneFilter ?? 'all'}
+          data={filteredData as GeoJsonObject}
+          style={(feature) => styleFeature(feature as BoundaryFeature)}
+          onEachFeature={(feature, layer) => onEachFeature(feature as BoundaryFeature, layer)}
         />
-        <MapController geoJsonData={boundariesData} zoneFilter={zoneFilter} />
       </MapContainer>
     </div>
   );
