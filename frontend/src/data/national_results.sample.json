@@ -1,0 +1,72 @@
+[
+  {
+    "constituency_id": "DNCC-1",
+    "year": 2024,
+    "winner_party": "Party A",
+    "winner_name": "Natl Candidate 1",
+    "runner_up_party": "Party D",
+    "turnout": 60.0,
+    "margin": 25.0,
+    "total_votes": 250000
+  },
+  {
+    "constituency_id": "DNCC-1",
+    "year": 2018,
+    "winner_party": "Party B",
+    "winner_name": "Natl Candidate 2",
+    "runner_up_party": "Party A",
+    "turnout": 65.0,
+    "margin": 5.0,
+    "total_votes": 240000
+  },
+  {
+    "constituency_id": "DNCC-2",
+    "year": 2024,
+    "winner_party": "Party A",
+    "winner_name": "Natl Candidate 3",
+    "runner_up_party": "Party C",
+    "turnout": 58.0,
+    "margin": 12.0,
+    "total_votes": 220000
+  },
+  {
+    "constituency_id": "DNCC-3",
+    "year": 2024,
+    "winner_party": "Party D",
+    "winner_name": "Natl Candidate 4",
+    "runner_up_party": "Party A",
+    "turnout": 55.0,
+    "margin": 2.0,
+    "total_votes": 210000
+  },
+  {
+    "constituency_id": "DSCC-1",
+    "year": 2024,
+    "winner_party": "Party B",
+    "winner_name": "Natl Candidate 5",
+    "runner_up_party": "Party A",
+    "turnout": 62.0,
+    "margin": 8.0,
+    "total_votes": 260000
+  },
+  {
+    "constituency_id": "DSCC-2",
+    "year": 2024,
+    "winner_party": "Party A",
+    "winner_name": "Natl Candidate 6",
+    "runner_up_party": "Party B",
+    "turnout": 59.0,
+    "margin": 15.0,
+    "total_votes": 230000
+  },
+  {
+    "constituency_id": "DSCC-3",
+    "year": 2024,
+    "winner_party": "Party E",
+    "winner_name": "Natl Candidate 7",
+    "runner_up_party": "Party A",
+    "turnout": 61.0,
+    "margin": 3.0,
+    "total_votes": 245000
+  }
+]

@@ -1,0 +1,125 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "DNCC-1",
+        "name": "Dhaka North - Ward 1",
+        "zone": "DNCC"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [90.35, 23.85],
+            [90.38, 23.85],
+            [90.38, 23.88],
+            [90.35, 23.88],
+            [90.35, 23.85]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "DNCC-2",
+        "name": "Dhaka North - Ward 2",
+        "zone": "DNCC"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [90.38, 23.85],
+            [90.41, 23.85],
+            [90.41, 23.88],
+            [90.38, 23.88],
+            [90.38, 23.85]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "DNCC-3",
+        "name": "Dhaka North - Ward 3",
+        "zone": "DNCC"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [90.41, 23.85],
+            [90.44, 23.85],
+            [90.44, 23.88],
+            [90.41, 23.88],
+            [90.41, 23.85]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "DSCC-1",
+        "name": "Dhaka South - Ward 1",
+        "zone": "DSCC"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [90.35, 23.82],
+            [90.38, 23.82],
+            [90.38, 23.85],
+            [90.35, 23.85],
+            [90.35, 23.82]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "DSCC-2",
+        "name": "Dhaka South - Ward 2",
+        "zone": "DSCC"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [90.38, 23.82],
+            [90.41, 23.82],
+            [90.41, 23.85],
+            [90.38, 23.85],
+            [90.38, 23.82]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": "DSCC-3",
+        "name": "Dhaka South - Ward 3",
+        "zone": "DSCC"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [90.41, 23.82],
+            [90.44, 23.82],
+            [90.44, 23.85],
+            [90.41, 23.85],
+            [90.41, 23.82]
+          ]
+        ]
+      }
+    }
+  ]
+}
