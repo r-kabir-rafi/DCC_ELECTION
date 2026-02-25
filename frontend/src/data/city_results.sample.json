@@ -1,0 +1,72 @@
+[
+  {
+    "constituency_id": "DNCC-1",
+    "year": 2020,
+    "winner_party": "Party A",
+    "winner_name": "Atiqul Islam",
+    "runner_up_party": "Party B",
+    "turnout": 45.2,
+    "margin": 15.5,
+    "total_votes": 120000
+  },
+  {
+    "constituency_id": "DNCC-1",
+    "year": 2015,
+    "winner_party": "Party A",
+    "winner_name": "Annisul Huq",
+    "runner_up_party": "Party C",
+    "turnout": 52.1,
+    "margin": 10.2,
+    "total_votes": 115000
+  },
+  {
+    "constituency_id": "DNCC-2",
+    "year": 2020,
+    "winner_party": "Party A",
+    "winner_name": "Candidate X",
+    "runner_up_party": "Party D",
+    "turnout": 50.0,
+    "margin": 8.0,
+    "total_votes": 90000
+  },
+  {
+    "constituency_id": "DNCC-3",
+    "year": 2020,
+    "winner_party": "Party B",
+    "winner_name": "Candidate Y",
+    "runner_up_party": "Party A",
+    "turnout": 42.0,
+    "margin": 2.5,
+    "total_votes": 85000
+  },
+  {
+    "constituency_id": "DSCC-1",
+    "year": 2020,
+    "winner_party": "Party A",
+    "winner_name": "Fazle Noor Taposh",
+    "runner_up_party": "Party B",
+    "turnout": 44.5,
+    "margin": 18.0,
+    "total_votes": 130000
+  },
+  {
+    "constituency_id": "DSCC-2",
+    "year": 2020,
+    "winner_party": "Party C",
+    "winner_name": "Candidate Z",
+    "runner_up_party": "Party A",
+    "turnout": 48.0,
+    "margin": 5.0,
+    "total_votes": 95000
+  },
+  {
+    "constituency_id": "DSCC-3",
+    "year": 2020,
+    "winner_party": "Party A",
+    "winner_name": "Candidate W",
+    "runner_up_party": "Party D",
+    "turnout": 41.0,
+    "margin": 12.0,
+    "total_votes": 105000
+  }
+]
