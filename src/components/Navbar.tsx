@@ -4,7 +4,6 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Moon, Sun, Menu, X } from 'lucide-react';
 import { useState, useEffect } from 'react';
-import ModeToggle from './ModeToggle';
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -64,9 +63,6 @@ export default function Navbar() {
               {link.label}
             </Link>
           ))}
-          <div className="ml-2 border-l border-gray-200 pl-3 dark:border-white/10">
-            <ModeToggle />
-          </div>
           <button
             type="button"
             onClick={toggleTheme}
@@ -80,7 +76,6 @@ export default function Navbar() {
 
         {/* Mobile buttons */}
         <div className="flex items-center gap-2 md:hidden">
-          <ModeToggle />
           <button
             type="button"
             onClick={toggleTheme}
