@@ -6,7 +6,7 @@ import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { useAppStore } from '@/store/useAppStore';
 import { getLatestResult } from '@/lib/data';
-import boundariesData from '@/data/boundaries.sample.geojson';
+import boundariesData from '@/data/boundaries.geojson';
 import { getPartyColor } from '@/lib/geo';
 
 function MapController({ geoJsonData, zoneFilter }: { geoJsonData: any; zoneFilter?: 'DNCC' | 'DSCC' }) {

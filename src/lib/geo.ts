@@ -10,11 +10,11 @@ export const stringToColor = (str: string) => {
 
 // Predefined party colors for consistent styling
 export const PARTY_COLORS: Record<string, string> = {
-  'Party A': '#0ea5e9', // Blue
-  'Party B': '#f43f5e', // Red
-  'Party C': '#22c55e', // Green
-  'Party D': '#eab308', // Yellow
-  'Party E': '#d946ef', // Fuchsia
+  'Awami League': '#22c55e', // Green (AL's traditional color)
+  'BNP': '#f43f5e',          // Red (BNP's traditional color)
+  'Independent': '#6366f1',  // Indigo
+  'Jatiya Party': '#eab308', // Yellow
+  'Jamaat': '#f97316',       // Orange
 };
 
 export const getPartyColor = (party: string) => {

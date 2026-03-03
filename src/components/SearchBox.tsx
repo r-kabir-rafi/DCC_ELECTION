@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { useAppStore } from '@/store/useAppStore';
-import boundaries from '@/data/boundaries.sample.geojson';
+import boundaries from '@/data/boundaries.geojson';
 import { Search } from 'lucide-react';
 
 export default function SearchBox({ zoneFilter }: { zoneFilter?: 'DNCC' | 'DSCC' }) {
@@ -106,8 +106,8 @@ export default function SearchBox({ zoneFilter }: { zoneFilter?: 'DNCC' | 'DSCC'
             <button
               key={r.id}
               className={`w-full text-left px-5 py-3 text-sm transition-colors border-b border-gray-50 last:border-b-0 flex items-center justify-between dark:border-slate-700/50 ${index === activeIndex
-                  ? 'bg-indigo-50 text-indigo-900 dark:bg-indigo-500/20 dark:text-indigo-200'
-                  : 'text-gray-700 hover:bg-indigo-50 hover:text-indigo-900 dark:text-gray-200 dark:hover:bg-indigo-500/10 dark:hover:text-indigo-200'
+                ? 'bg-indigo-50 text-indigo-900 dark:bg-indigo-500/20 dark:text-indigo-200'
+                : 'text-gray-700 hover:bg-indigo-50 hover:text-indigo-900 dark:text-gray-200 dark:hover:bg-indigo-500/10 dark:hover:text-indigo-200'
                 }`}
               onClick={() => selectResult(r.id)}
               onMouseEnter={() => setActiveIndex(index)}

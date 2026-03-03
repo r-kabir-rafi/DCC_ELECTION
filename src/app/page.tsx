@@ -34,9 +34,9 @@ export default function Home() {
           {/* Stats pills */}
           <div className="mt-6 flex flex-wrap gap-3">
             {[
-              { icon: Map, label: "6 Constituencies" },
-              { icon: MapPin, label: "2 Zones (DNCC + DSCC)" },
-              { icon: BarChart3, label: "2 Election Types" },
+              { icon: Map, label: "2 Corporation Zones" },
+              { icon: MapPin, label: "DNCC + DSCC" },
+              { icon: BarChart3, label: "City & National Elections" },
             ].map(({ icon: Icon, label }) => (
               <span
                 key={label}

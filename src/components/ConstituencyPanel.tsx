@@ -2,7 +2,7 @@
 import { useMemo } from 'react';
 import { useAppStore } from '@/store/useAppStore';
 import { getConstituencyResults, getLatestResult } from '@/lib/data';
-import boundaries from '@/data/boundaries.sample.geojson';
+import boundaries from '@/data/boundaries.geojson';
 import { getPartyColor } from '@/lib/geo';
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, Cell } from 'recharts';
 import { X, TrendingUp, Users, CheckCircle, Navigation } from 'lucide-react';

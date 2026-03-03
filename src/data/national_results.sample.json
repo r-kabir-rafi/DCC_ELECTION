@@ -1,72 +1,42 @@
 [
   {
-    "constituency_id": "DNCC-1",
+    "constituency_id": "DNCC",
     "year": 2024,
-    "winner_party": "Party A",
-    "winner_name": "Natl Candidate 1",
-    "runner_up_party": "Party D",
-    "turnout": 60.0,
+    "winner_party": "Independent",
+    "winner_name": "Tabith Awal",
+    "runner_up_party": "Awami League",
+    "turnout": 50.0,
     "margin": 25.0,
-    "total_votes": 250000
+    "total_votes": 1250000
   },
   {
-    "constituency_id": "DNCC-1",
+    "constituency_id": "DNCC",
     "year": 2018,
-    "winner_party": "Party B",
-    "winner_name": "Natl Candidate 2",
-    "runner_up_party": "Party A",
-    "turnout": 65.0,
+    "winner_party": "Awami League",
+    "winner_name": "DNCC-area MP",
+    "runner_up_party": "BNP",
+    "turnout": 41.0,
     "margin": 5.0,
-    "total_votes": 240000
+    "total_votes": 1100000
   },
   {
-    "constituency_id": "DNCC-2",
+    "constituency_id": "DSCC",
     "year": 2024,
-    "winner_party": "Party A",
-    "winner_name": "Natl Candidate 3",
-    "runner_up_party": "Party C",
-    "turnout": 58.0,
-    "margin": 12.0,
-    "total_votes": 220000
+    "winner_party": "Independent",
+    "winner_name": "Ishraque Hossain",
+    "runner_up_party": "Awami League",
+    "turnout": 48.5,
+    "margin": 20.0,
+    "total_votes": 1180000
   },
   {
-    "constituency_id": "DNCC-3",
-    "year": 2024,
-    "winner_party": "Party D",
-    "winner_name": "Natl Candidate 4",
-    "runner_up_party": "Party A",
-    "turnout": 55.0,
-    "margin": 2.0,
-    "total_votes": 210000
-  },
-  {
-    "constituency_id": "DSCC-1",
-    "year": 2024,
-    "winner_party": "Party B",
-    "winner_name": "Natl Candidate 5",
-    "runner_up_party": "Party A",
-    "turnout": 62.0,
+    "constituency_id": "DSCC",
+    "year": 2018,
+    "winner_party": "Awami League",
+    "winner_name": "DSCC-area MP",
+    "runner_up_party": "BNP",
+    "turnout": 39.0,
     "margin": 8.0,
-    "total_votes": 260000
-  },
-  {
-    "constituency_id": "DSCC-2",
-    "year": 2024,
-    "winner_party": "Party A",
-    "winner_name": "Natl Candidate 6",
-    "runner_up_party": "Party B",
-    "turnout": 59.0,
-    "margin": 15.0,
-    "total_votes": 230000
-  },
-  {
-    "constituency_id": "DSCC-3",
-    "year": 2024,
-    "winner_party": "Party E",
-    "winner_name": "Natl Candidate 7",
-    "runner_up_party": "Party A",
-    "turnout": 61.0,
-    "margin": 3.0,
-    "total_votes": 245000
+    "total_votes": 1050000
   }
 ]
