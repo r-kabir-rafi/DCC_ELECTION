@@ -1,0 +1,92 @@
+[
+    {
+        "id": "DNCC-W01",
+        "ward_no": 1,
+        "name": "Uttara (East)",
+        "city": "DNCC",
+        "type": "ward",
+        "thana": "Uttara",
+        "mapped": true
+    },
+    {
+        "id": "DNCC-W02",
+        "ward_no": 2,
+        "name": "Uttara (West)",
+        "city": "DNCC",
+        "type": "ward",
+        "thana": "Uttara",
+        "mapped": true
+    },
+    {
+        "id": "DNCC-W03",
+        "ward_no": 3,
+        "name": "Dakshinkhan",
+        "city": "DNCC",
+        "type": "ward",
+        "thana": "Dakshinkhan",
+        "mapped": true
+    },
+    {
+        "id": "DNCC-W04",
+        "ward_no": 4,
+        "name": "Baridhara",
+        "city": "DNCC",
+        "type": "ward",
+        "thana": "Gulshan",
+        "mapped": true
+    },
+    {
+        "id": "DNCC-W05",
+        "ward_no": 5,
+        "name": "Gulshan",
+        "city": "DNCC",
+        "type": "ward",
+        "thana": "Gulshan",
+        "mapped": true
+    },
+    {
+        "id": "DNCC-W06",
+        "ward_no": 6,
+        "name": "Banani",
+        "city": "DNCC",
+        "type": "ward",
+        "thana": "Banani",
+        "mapped": true
+    },
+    {
+        "id": "DNCC-W07",
+        "ward_no": 7,
+        "name": "Mohakhali",
+        "city": "DNCC",
+        "type": "ward",
+        "thana": "Tejgaon",
+        "mapped": true
+    },
+    {
+        "id": "DNCC-W08",
+        "ward_no": 8,
+        "name": "Cantonment",
+        "city": "DNCC",
+        "type": "ward",
+        "thana": "Cantonment",
+        "mapped": false
+    },
+    {
+        "id": "DNCC-W09",
+        "ward_no": 9,
+        "name": "Mirpur-1",
+        "city": "DNCC",
+        "type": "ward",
+        "thana": "Mirpur",
+        "mapped": false
+    },
+    {
+        "id": "DNCC-W10",
+        "ward_no": 10,
+        "name": "Mirpur-2",
+        "city": "DNCC",
+        "type": "ward",
+        "thana": "Mirpur",
+        "mapped": false
+    }
+]

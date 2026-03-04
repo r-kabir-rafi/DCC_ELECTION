@@ -1,0 +1,271 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "DNCC-W01",
+                "name": "Uttara (East)",
+                "city": "DNCC",
+                "type": "ward",
+                "ward_no": 1,
+                "thana": "Uttara"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            90.38,
+                            23.86
+                        ],
+                        [
+                            90.40,
+                            23.86
+                        ],
+                        [
+                            90.40,
+                            23.88
+                        ],
+                        [
+                            90.38,
+                            23.88
+                        ],
+                        [
+                            90.38,
+                            23.86
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "DNCC-W02",
+                "name": "Uttara (West)",
+                "city": "DNCC",
+                "type": "ward",
+                "ward_no": 2,
+                "thana": "Uttara"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            90.36,
+                            23.86
+                        ],
+                        [
+                            90.38,
+                            23.86
+                        ],
+                        [
+                            90.38,
+                            23.88
+                        ],
+                        [
+                            90.36,
+                            23.88
+                        ],
+                        [
+                            90.36,
+                            23.86
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "DNCC-W03",
+                "name": "Dakshinkhan",
+                "city": "DNCC",
+                "type": "ward",
+                "ward_no": 3,
+                "thana": "Dakshinkhan"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            90.40,
+                            23.86
+                        ],
+                        [
+                            90.42,
+                            23.86
+                        ],
+                        [
+                            90.42,
+                            23.88
+                        ],
+                        [
+                            90.40,
+                            23.88
+                        ],
+                        [
+                            90.40,
+                            23.86
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "DNCC-W04",
+                "name": "Baridhara",
+                "city": "DNCC",
+                "type": "ward",
+                "ward_no": 4,
+                "thana": "Gulshan"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            90.40,
+                            23.83
+                        ],
+                        [
+                            90.42,
+                            23.83
+                        ],
+                        [
+                            90.42,
+                            23.85
+                        ],
+                        [
+                            90.40,
+                            23.85
+                        ],
+                        [
+                            90.40,
+                            23.83
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "DNCC-W05",
+                "name": "Gulshan",
+                "city": "DNCC",
+                "type": "ward",
+                "ward_no": 5,
+                "thana": "Gulshan"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            90.39,
+                            23.83
+                        ],
+                        [
+                            90.40,
+                            23.83
+                        ],
+                        [
+                            90.40,
+                            23.85
+                        ],
+                        [
+                            90.39,
+                            23.85
+                        ],
+                        [
+                            90.39,
+                            23.83
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "DNCC-W06",
+                "name": "Banani",
+                "city": "DNCC",
+                "type": "ward",
+                "ward_no": 6,
+                "thana": "Banani"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            90.39,
+                            23.85
+                        ],
+                        [
+                            90.41,
+                            23.85
+                        ],
+                        [
+                            90.41,
+                            23.86
+                        ],
+                        [
+                            90.39,
+                            23.86
+                        ],
+                        [
+                            90.39,
+                            23.85
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "DNCC-W07",
+                "name": "Mohakhali",
+                "city": "DNCC",
+                "type": "ward",
+                "ward_no": 7,
+                "thana": "Tejgaon"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            90.38,
+                            23.83
+                        ],
+                        [
+                            90.39,
+                            23.83
+                        ],
+                        [
+                            90.39,
+                            23.85
+                        ],
+                        [
+                            90.38,
+                            23.85
+                        ],
+                        [
+                            90.38,
+                            23.83
+                        ]
+                    ]
+                ]
+            }
+        }
+    ]
+}

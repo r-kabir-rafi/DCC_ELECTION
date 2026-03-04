@@ -1,0 +1,92 @@
+[
+    {
+        "id": "DSCC-W01",
+        "ward_no": 1,
+        "name": "Gandaria",
+        "city": "DSCC",
+        "type": "ward",
+        "thana": "Gandaria",
+        "mapped": true
+    },
+    {
+        "id": "DSCC-W02",
+        "ward_no": 2,
+        "name": "Lalbagh",
+        "city": "DSCC",
+        "type": "ward",
+        "thana": "Lalbagh",
+        "mapped": true
+    },
+    {
+        "id": "DSCC-W03",
+        "ward_no": 3,
+        "name": "Kotwali",
+        "city": "DSCC",
+        "type": "ward",
+        "thana": "Kotwali",
+        "mapped": true
+    },
+    {
+        "id": "DSCC-W04",
+        "ward_no": 4,
+        "name": "Sutrapur",
+        "city": "DSCC",
+        "type": "ward",
+        "thana": "Sutrapur",
+        "mapped": true
+    },
+    {
+        "id": "DSCC-W05",
+        "ward_no": 5,
+        "name": "Wari",
+        "city": "DSCC",
+        "type": "ward",
+        "thana": "Wari",
+        "mapped": true
+    },
+    {
+        "id": "DSCC-W06",
+        "ward_no": 6,
+        "name": "Motijheel",
+        "city": "DSCC",
+        "type": "ward",
+        "thana": "Motijheel",
+        "mapped": true
+    },
+    {
+        "id": "DSCC-W07",
+        "ward_no": 7,
+        "name": "Dhanmondi",
+        "city": "DSCC",
+        "type": "ward",
+        "thana": "Dhanmondi",
+        "mapped": true
+    },
+    {
+        "id": "DSCC-W08",
+        "ward_no": 8,
+        "name": "Hazaribagh",
+        "city": "DSCC",
+        "type": "ward",
+        "thana": "Hazaribagh",
+        "mapped": false
+    },
+    {
+        "id": "DSCC-W09",
+        "ward_no": 9,
+        "name": "Kamrangirchar",
+        "city": "DSCC",
+        "type": "ward",
+        "thana": "Kamrangirchar",
+        "mapped": false
+    },
+    {
+        "id": "DSCC-W10",
+        "ward_no": 10,
+        "name": "Jatrabari",
+        "city": "DSCC",
+        "type": "ward",
+        "thana": "Jatrabari",
+        "mapped": false
+    }
+]

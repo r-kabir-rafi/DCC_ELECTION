@@ -1,0 +1,44 @@
+[
+    {
+        "id": "DCC-C01",
+        "name": "Dhaka-11",
+        "city": "DNCC",
+        "type": "constituency",
+        "code": "184"
+    },
+    {
+        "id": "DCC-C02",
+        "name": "Dhaka-12",
+        "city": "DNCC",
+        "type": "constituency",
+        "code": "185"
+    },
+    {
+        "id": "DCC-C03",
+        "name": "Dhaka-13",
+        "city": "DNCC",
+        "type": "constituency",
+        "code": "186"
+    },
+    {
+        "id": "DCC-C04",
+        "name": "Dhaka-4",
+        "city": "DSCC",
+        "type": "constituency",
+        "code": "177"
+    },
+    {
+        "id": "DCC-C05",
+        "name": "Dhaka-5",
+        "city": "DSCC",
+        "type": "constituency",
+        "code": "178"
+    },
+    {
+        "id": "DCC-C06",
+        "name": "Dhaka-7",
+        "city": "DSCC",
+        "type": "constituency",
+        "code": "180"
+    }
+]

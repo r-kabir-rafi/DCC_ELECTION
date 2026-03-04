@@ -1,0 +1,271 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "DSCC-W01",
+                "name": "Gandaria",
+                "city": "DSCC",
+                "type": "ward",
+                "ward_no": 1,
+                "thana": "Gandaria"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            90.40,
+                            23.71
+                        ],
+                        [
+                            90.41,
+                            23.71
+                        ],
+                        [
+                            90.41,
+                            23.72
+                        ],
+                        [
+                            90.40,
+                            23.72
+                        ],
+                        [
+                            90.40,
+                            23.71
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "DSCC-W02",
+                "name": "Lalbagh",
+                "city": "DSCC",
+                "type": "ward",
+                "ward_no": 2,
+                "thana": "Lalbagh"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            90.38,
+                            23.71
+                        ],
+                        [
+                            90.40,
+                            23.71
+                        ],
+                        [
+                            90.40,
+                            23.73
+                        ],
+                        [
+                            90.38,
+                            23.73
+                        ],
+                        [
+                            90.38,
+                            23.71
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "DSCC-W03",
+                "name": "Kotwali",
+                "city": "DSCC",
+                "type": "ward",
+                "ward_no": 3,
+                "thana": "Kotwali"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            90.40,
+                            23.72
+                        ],
+                        [
+                            90.42,
+                            23.72
+                        ],
+                        [
+                            90.42,
+                            23.74
+                        ],
+                        [
+                            90.40,
+                            23.74
+                        ],
+                        [
+                            90.40,
+                            23.72
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "DSCC-W04",
+                "name": "Sutrapur",
+                "city": "DSCC",
+                "type": "ward",
+                "ward_no": 4,
+                "thana": "Sutrapur"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            90.41,
+                            23.71
+                        ],
+                        [
+                            90.43,
+                            23.71
+                        ],
+                        [
+                            90.43,
+                            23.72
+                        ],
+                        [
+                            90.41,
+                            23.72
+                        ],
+                        [
+                            90.41,
+                            23.71
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "DSCC-W05",
+                "name": "Wari",
+                "city": "DSCC",
+                "type": "ward",
+                "ward_no": 5,
+                "thana": "Wari"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            90.39,
+                            23.73
+                        ],
+                        [
+                            90.41,
+                            23.73
+                        ],
+                        [
+                            90.41,
+                            23.75
+                        ],
+                        [
+                            90.39,
+                            23.75
+                        ],
+                        [
+                            90.39,
+                            23.73
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "DSCC-W06",
+                "name": "Motijheel",
+                "city": "DSCC",
+                "type": "ward",
+                "ward_no": 6,
+                "thana": "Motijheel"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            90.41,
+                            23.73
+                        ],
+                        [
+                            90.43,
+                            23.73
+                        ],
+                        [
+                            90.43,
+                            23.75
+                        ],
+                        [
+                            90.41,
+                            23.75
+                        ],
+                        [
+                            90.41,
+                            23.73
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "DSCC-W07",
+                "name": "Dhanmondi",
+                "city": "DSCC",
+                "type": "ward",
+                "ward_no": 7,
+                "thana": "Dhanmondi"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            90.37,
+                            23.74
+                        ],
+                        [
+                            90.39,
+                            23.74
+                        ],
+                        [
+                            90.39,
+                            23.76
+                        ],
+                        [
+                            90.37,
+                            23.76
+                        ],
+                        [
+                            90.37,
+                            23.74
+                        ]
+                    ]
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,375 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "DNCC-T01",
+                "name": "Uttara",
+                "city": "DNCC",
+                "type": "thana",
+                "code": "UTT"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            90.36,
+                            23.86
+                        ],
+                        [
+                            90.39,
+                            23.86
+                        ],
+                        [
+                            90.39,
+                            23.88
+                        ],
+                        [
+                            90.36,
+                            23.88
+                        ],
+                        [
+                            90.36,
+                            23.86
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "DNCC-T02",
+                "name": "Gulshan",
+                "city": "DNCC",
+                "type": "thana",
+                "code": "GUL"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            90.39,
+                            23.83
+                        ],
+                        [
+                            90.42,
+                            23.83
+                        ],
+                        [
+                            90.42,
+                            23.85
+                        ],
+                        [
+                            90.39,
+                            23.85
+                        ],
+                        [
+                            90.39,
+                            23.83
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "DNCC-T03",
+                "name": "Banani",
+                "city": "DNCC",
+                "type": "thana",
+                "code": "BAN"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            90.39,
+                            23.85
+                        ],
+                        [
+                            90.42,
+                            23.85
+                        ],
+                        [
+                            90.42,
+                            23.87
+                        ],
+                        [
+                            90.39,
+                            23.87
+                        ],
+                        [
+                            90.39,
+                            23.85
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "DNCC-T04",
+                "name": "Mirpur",
+                "city": "DNCC",
+                "type": "thana",
+                "code": "MIR"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            90.34,
+                            23.82
+                        ],
+                        [
+                            90.37,
+                            23.82
+                        ],
+                        [
+                            90.37,
+                            23.85
+                        ],
+                        [
+                            90.34,
+                            23.85
+                        ],
+                        [
+                            90.34,
+                            23.82
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "DNCC-T05",
+                "name": "Cantonment",
+                "city": "DNCC",
+                "type": "thana",
+                "code": "CAN"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            90.37,
+                            23.85
+                        ],
+                        [
+                            90.40,
+                            23.85
+                        ],
+                        [
+                            90.40,
+                            23.87
+                        ],
+                        [
+                            90.37,
+                            23.87
+                        ],
+                        [
+                            90.37,
+                            23.85
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "DSCC-T01",
+                "name": "Gandaria",
+                "city": "DSCC",
+                "type": "thana",
+                "code": "GAN"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            90.39,
+                            23.71
+                        ],
+                        [
+                            90.41,
+                            23.71
+                        ],
+                        [
+                            90.41,
+                            23.73
+                        ],
+                        [
+                            90.39,
+                            23.73
+                        ],
+                        [
+                            90.39,
+                            23.71
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "DSCC-T02",
+                "name": "Lalbagh",
+                "city": "DSCC",
+                "type": "thana",
+                "code": "LAL"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            90.37,
+                            23.71
+                        ],
+                        [
+                            90.39,
+                            23.71
+                        ],
+                        [
+                            90.39,
+                            23.73
+                        ],
+                        [
+                            90.37,
+                            23.73
+                        ],
+                        [
+                            90.37,
+                            23.71
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "DSCC-T03",
+                "name": "Kotwali",
+                "city": "DSCC",
+                "type": "thana",
+                "code": "KOT"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            90.39,
+                            23.73
+                        ],
+                        [
+                            90.41,
+                            23.73
+                        ],
+                        [
+                            90.41,
+                            23.75
+                        ],
+                        [
+                            90.39,
+                            23.75
+                        ],
+                        [
+                            90.39,
+                            23.73
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "DSCC-T04",
+                "name": "Motijheel",
+                "city": "DSCC",
+                "type": "thana",
+                "code": "MOT"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            90.41,
+                            23.73
+                        ],
+                        [
+                            90.43,
+                            23.73
+                        ],
+                        [
+                            90.43,
+                            23.75
+                        ],
+                        [
+                            90.41,
+                            23.75
+                        ],
+                        [
+                            90.41,
+                            23.73
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "DSCC-T05",
+                "name": "Dhanmondi",
+                "city": "DSCC",
+                "type": "thana",
+                "code": "DHA"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            90.37,
+                            23.73
+                        ],
+                        [
+                            90.39,
+                            23.73
+                        ],
+                        [
+                            90.39,
+                            23.76
+                        ],
+                        [
+                            90.37,
+                            23.76
+                        ],
+                        [
+                            90.37,
+                            23.73
+                        ]
+                    ]
+                ]
+            }
+        }
+    ]
+}

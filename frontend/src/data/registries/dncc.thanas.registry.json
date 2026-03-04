@@ -1,0 +1,37 @@
+[
+    {
+        "id": "DNCC-T01",
+        "name": "Uttara",
+        "city": "DNCC",
+        "type": "thana",
+        "code": "UTT"
+    },
+    {
+        "id": "DNCC-T02",
+        "name": "Gulshan",
+        "city": "DNCC",
+        "type": "thana",
+        "code": "GUL"
+    },
+    {
+        "id": "DNCC-T03",
+        "name": "Banani",
+        "city": "DNCC",
+        "type": "thana",
+        "code": "BAN"
+    },
+    {
+        "id": "DNCC-T04",
+        "name": "Mirpur",
+        "city": "DNCC",
+        "type": "thana",
+        "code": "MIR"
+    },
+    {
+        "id": "DNCC-T05",
+        "name": "Cantonment",
+        "city": "DNCC",
+        "type": "thana",
+        "code": "CAN"
+    }
+]

@@ -1,0 +1,37 @@
+[
+    {
+        "id": "DSCC-T01",
+        "name": "Gandaria",
+        "city": "DSCC",
+        "type": "thana",
+        "code": "GAN"
+    },
+    {
+        "id": "DSCC-T02",
+        "name": "Lalbagh",
+        "city": "DSCC",
+        "type": "thana",
+        "code": "LAL"
+    },
+    {
+        "id": "DSCC-T03",
+        "name": "Kotwali",
+        "city": "DSCC",
+        "type": "thana",
+        "code": "KOT"
+    },
+    {
+        "id": "DSCC-T04",
+        "name": "Motijheel",
+        "city": "DSCC",
+        "type": "thana",
+        "code": "MOT"
+    },
+    {
+        "id": "DSCC-T05",
+        "name": "Dhanmondi",
+        "city": "DSCC",
+        "type": "thana",
+        "code": "DHA"
+    }
+]

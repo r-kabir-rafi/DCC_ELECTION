@@ -1,0 +1,227 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "DCC-C01",
+                "name": "Dhaka-11",
+                "city": "DNCC",
+                "type": "constituency",
+                "code": "184"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            90.36,
+                            23.82
+                        ],
+                        [
+                            90.39,
+                            23.82
+                        ],
+                        [
+                            90.39,
+                            23.85
+                        ],
+                        [
+                            90.36,
+                            23.85
+                        ],
+                        [
+                            90.36,
+                            23.82
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "DCC-C02",
+                "name": "Dhaka-12",
+                "city": "DNCC",
+                "type": "constituency",
+                "code": "185"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            90.39,
+                            23.82
+                        ],
+                        [
+                            90.42,
+                            23.82
+                        ],
+                        [
+                            90.42,
+                            23.85
+                        ],
+                        [
+                            90.39,
+                            23.85
+                        ],
+                        [
+                            90.39,
+                            23.82
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "DCC-C03",
+                "name": "Dhaka-13",
+                "city": "DNCC",
+                "type": "constituency",
+                "code": "186"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            90.36,
+                            23.85
+                        ],
+                        [
+                            90.39,
+                            23.85
+                        ],
+                        [
+                            90.39,
+                            23.88
+                        ],
+                        [
+                            90.36,
+                            23.88
+                        ],
+                        [
+                            90.36,
+                            23.85
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "DCC-C04",
+                "name": "Dhaka-4",
+                "city": "DSCC",
+                "type": "constituency",
+                "code": "177"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            90.37,
+                            23.70
+                        ],
+                        [
+                            90.40,
+                            23.70
+                        ],
+                        [
+                            90.40,
+                            23.73
+                        ],
+                        [
+                            90.37,
+                            23.73
+                        ],
+                        [
+                            90.37,
+                            23.70
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "DCC-C05",
+                "name": "Dhaka-5",
+                "city": "DSCC",
+                "type": "constituency",
+                "code": "178"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            90.40,
+                            23.70
+                        ],
+                        [
+                            90.43,
+                            23.70
+                        ],
+                        [
+                            90.43,
+                            23.73
+                        ],
+                        [
+                            90.40,
+                            23.73
+                        ],
+                        [
+                            90.40,
+                            23.70
+                        ]
+                    ]
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "properties": {
+                "id": "DCC-C06",
+                "name": "Dhaka-7",
+                "city": "DSCC",
+                "type": "constituency",
+                "code": "180"
+            },
+            "geometry": {
+                "type": "Polygon",
+                "coordinates": [
+                    [
+                        [
+                            90.37,
+                            23.73
+                        ],
+                        [
+                            90.40,
+                            23.73
+                        ],
+                        [
+                            90.40,
+                            23.76
+                        ],
+                        [
+                            90.37,
+                            23.76
+                        ],
+                        [
+                            90.37,
+                            23.73
+                        ]
+                    ]
+                ]
+            }
+        }
+    ]
+}
