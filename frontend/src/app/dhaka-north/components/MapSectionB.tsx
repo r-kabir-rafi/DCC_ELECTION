@@ -3,7 +3,7 @@
 import { useState, useCallback } from 'react';
 import dynamic from 'next/dynamic';
 import type { DccFeature, CityCode } from '@/lib/types';
-import { getWardsGeoJSON, getWardListItems, getThanaListItems, getConstituencyListItems } from '@/lib/data';
+import { getWardsGeoJSON, getWardListItems, getThanaListItems, getConstituencyListItems, getBoundaryGeoJSON } from '@/lib/data';
 import SearchInput, { useSearch } from '@/components/common/SearchInput';
 import GeoLegend from '@/components/common/GeoLegend';
 
@@ -22,6 +22,7 @@ export default function MapSectionB({ city, title, description }: MapSectionBPro
     const [activeTab, setActiveTab] = useState<Tab>('wards');
     const [search, setSearch] = useState('');
 
+    const boundaryData = getBoundaryGeoJSON(city);
     const geoData = getWardsGeoJSON(city);
     const wardItems = getWardListItems(city);
     const thanaItems = getThanaListItems(city);
@@ -53,7 +54,7 @@ export default function MapSectionB({ city, title, description }: MapSectionBPro
                     {/* Map */}
                     <div className="h-[400px] lg:h-[550px]">
                         <MapShell
-                            data={geoData}
+                            data={boundaryData}
                             layerType="ward"
                             selectedId={selectedId}
                             onFeatureClick={handleFeatureClick}
@@ -98,8 +99,8 @@ export default function MapSectionB({ city, title, description }: MapSectionBPro
                                     key={tab.key}
                                     onClick={() => { setActiveTab(tab.key); setSearch(''); }}
                                     className={`flex-1 rounded-md px-2 py-1.5 text-xs font-medium transition-colors ${activeTab === tab.key
-                                            ? 'bg-white text-gray-800 shadow-sm dark:bg-slate-700 dark:text-gray-100'
-                                            : 'text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200'
+                                        ? 'bg-white text-gray-800 shadow-sm dark:bg-slate-700 dark:text-gray-100'
+                                        : 'text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200'
                                         }`}
                                 >
                                     {tab.label} ({tab.count})
@@ -120,10 +121,10 @@ export default function MapSectionB({ city, title, description }: MapSectionBPro
                                     key={item.id}
                                     onClick={() => item.hasBoundary && setSelectedId(item.id === selectedId ? null : item.id)}
                                     className={`w-full text-left rounded-lg px-3 py-2 text-sm transition-colors ${item.id === selectedId
-                                            ? 'bg-emerald-100 text-emerald-800 dark:bg-emerald-500/20 dark:text-emerald-200'
-                                            : item.hasBoundary
-                                                ? 'text-gray-700 hover:bg-gray-50 dark:text-gray-300 dark:hover:bg-white/5'
-                                                : 'text-gray-400 dark:text-gray-500'
+                                        ? 'bg-emerald-100 text-emerald-800 dark:bg-emerald-500/20 dark:text-emerald-200'
+                                        : item.hasBoundary
+                                            ? 'text-gray-700 hover:bg-gray-50 dark:text-gray-300 dark:hover:bg-white/5'
+                                            : 'text-gray-400 dark:text-gray-500'
                                         }`}
                                     disabled={!item.hasBoundary}
                                 >

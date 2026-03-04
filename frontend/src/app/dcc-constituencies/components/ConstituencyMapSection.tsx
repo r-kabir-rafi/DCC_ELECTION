@@ -3,7 +3,7 @@
 import { useState, useCallback } from 'react';
 import dynamic from 'next/dynamic';
 import type { DccFeature } from '@/lib/types';
-import { getConstituenciesGeoJSON, getConstituencyListItems } from '@/lib/data';
+import { getConstituenciesGeoJSON, getConstituencyListItems, getBoundaryGeoJSON } from '@/lib/data';
 import SearchInput, { useSearch } from '@/components/common/SearchInput';
 import GeoLegend from '@/components/common/GeoLegend';
 
@@ -13,6 +13,7 @@ export default function ConstituencyMapSection() {
     const [selectedId, setSelectedId] = useState<string | null>(null);
     const [search, setSearch] = useState('');
 
+    const boundaryData = getBoundaryGeoJSON('DCC');
     const geoData = getConstituenciesGeoJSON();
     const listItems = getConstituencyListItems();
     const filtered = useSearch(listItems, search, item => `${item.name} ${item.code || ''} ${item.city}`);
@@ -27,7 +28,7 @@ export default function ConstituencyMapSection() {
         <div className="mt-4 grid gap-4 lg:grid-cols-[1fr_360px]">
             <div className="h-[500px] lg:h-[600px]">
                 <MapShell
-                    data={geoData}
+                    data={boundaryData}
                     layerType="constituency"
                     selectedId={selectedId}
                     onFeatureClick={handleFeatureClick}
@@ -69,15 +70,15 @@ export default function ConstituencyMapSection() {
                             key={item.id}
                             onClick={() => setSelectedId(item.id === selectedId ? null : item.id)}
                             className={`w-full text-left rounded-lg px-3 py-2 text-sm transition-colors ${item.id === selectedId
-                                    ? 'bg-violet-100 text-violet-800 dark:bg-violet-500/20 dark:text-violet-200'
-                                    : 'text-gray-700 hover:bg-gray-50 dark:text-gray-300 dark:hover:bg-white/5'
+                                ? 'bg-violet-100 text-violet-800 dark:bg-violet-500/20 dark:text-violet-200'
+                                : 'text-gray-700 hover:bg-gray-50 dark:text-gray-300 dark:hover:bg-white/5'
                                 }`}
                         >
                             <span className="font-medium">{item.name}</span>
                             <span className="ml-2 text-xs text-gray-400">{item.code}</span>
                             <span className={`ml-2 inline-block rounded px-1.5 py-0.5 text-[10px] font-medium ${item.city === 'DNCC'
-                                    ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400'
-                                    : 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400'
+                                ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-400'
+                                : 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400'
                                 }`}>
                                 {item.city}
                             </span>

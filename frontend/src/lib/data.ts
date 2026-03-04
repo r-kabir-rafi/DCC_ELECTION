@@ -9,6 +9,9 @@ import dccConstituencies from '../data/dcc.constituencies.json';
 import dccThanas from '../data/dcc.thanas.json';
 import dnccWards from '../data/dncc.wards.json';
 import dsccWards from '../data/dscc.wards.json';
+import dnccBoundary from '../data/dncc.boundary.json';
+import dsccBoundary from '../data/dscc.boundary.json';
+import dccBoundary from '../data/dcc.boundary.json';
 
 // ── Registry imports ─────────────────────────────────────
 import dnccWardsRegistry from '../data/registries/dncc.wards.registry.json';
@@ -18,6 +21,12 @@ import dsccThanasRegistry from '../data/registries/dscc.thanas.registry.json';
 import dccConstituenciesRegistry from '../data/registries/dcc.constituencies.registry.json';
 
 // ── GeoJSON getters ──────────────────────────────────────
+
+export function getBoundaryGeoJSON(city: CityCode): DccFeatureCollection {
+  if (city === 'DNCC') return dnccBoundary as unknown as DccFeatureCollection;
+  if (city === 'DSCC') return dsccBoundary as unknown as DccFeatureCollection;
+  return dccBoundary as unknown as DccFeatureCollection;
+}
 
 export function getConstituenciesGeoJSON(): DccFeatureCollection {
   return dccConstituencies as unknown as DccFeatureCollection;

@@ -3,7 +3,7 @@
 import { useState, useCallback } from 'react';
 import dynamic from 'next/dynamic';
 import type { DccFeature } from '@/lib/types';
-import { getConstituenciesByCity, getConstituencyListItems } from '@/lib/data';
+import { getConstituenciesByCity, getConstituencyListItems, getBoundaryGeoJSON } from '@/lib/data';
 import SearchInput, { useSearch } from '@/components/common/SearchInput';
 import GeoLegend from '@/components/common/GeoLegend';
 import type { CityCode } from '@/lib/types';
@@ -20,6 +20,7 @@ export default function MapSectionA({ city, title, description }: MapSectionAPro
     const [selectedId, setSelectedId] = useState<string | null>(null);
     const [search, setSearch] = useState('');
 
+    const boundaryData = getBoundaryGeoJSON(city);
     const geoData = getConstituenciesByCity(city);
     const listItems = getConstituencyListItems(city);
     const filtered = useSearch(listItems, search, item => `${item.name} ${item.code || ''}`);
@@ -39,7 +40,7 @@ export default function MapSectionA({ city, title, description }: MapSectionAPro
                 <div className="mt-4 grid gap-4 lg:grid-cols-[1fr_340px]">
                     <div className="h-[400px] lg:h-[500px]">
                         <MapShell
-                            data={geoData}
+                            data={boundaryData}
                             layerType="constituency"
                             selectedId={selectedId}
                             onFeatureClick={handleFeatureClick}
@@ -79,8 +80,8 @@ export default function MapSectionA({ city, title, description }: MapSectionAPro
                                     key={item.id}
                                     onClick={() => setSelectedId(item.id === selectedId ? null : item.id)}
                                     className={`w-full text-left rounded-lg px-3 py-2 text-sm transition-colors ${item.id === selectedId
-                                            ? 'bg-indigo-100 text-indigo-800 dark:bg-indigo-500/20 dark:text-indigo-200'
-                                            : 'text-gray-700 hover:bg-gray-50 dark:text-gray-300 dark:hover:bg-white/5'
+                                        ? 'bg-indigo-100 text-indigo-800 dark:bg-indigo-500/20 dark:text-indigo-200'
+                                        : 'text-gray-700 hover:bg-gray-50 dark:text-gray-300 dark:hover:bg-white/5'
                                         }`}
                                 >
                                     <span className="font-medium">{item.name}</span>

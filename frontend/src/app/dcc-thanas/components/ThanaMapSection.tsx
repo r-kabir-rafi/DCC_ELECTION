@@ -3,7 +3,7 @@
 import { useState, useCallback } from 'react';
 import dynamic from 'next/dynamic';
 import type { DccFeature } from '@/lib/types';
-import { getThanasGeoJSON, getThanaListItems } from '@/lib/data';
+import { getThanasGeoJSON, getThanaListItems, getBoundaryGeoJSON } from '@/lib/data';
 import SearchInput, { useSearch } from '@/components/common/SearchInput';
 import GeoLegend from '@/components/common/GeoLegend';
 
@@ -13,6 +13,7 @@ export default function ThanaMapSection() {
     const [selectedId, setSelectedId] = useState<string | null>(null);
     const [search, setSearch] = useState('');
 
+    const boundaryData = getBoundaryGeoJSON('DCC');
     const geoData = getThanasGeoJSON();
     const dnccItems = getThanaListItems('DNCC');
     const dsccItems = getThanaListItems('DSCC');
@@ -29,7 +30,7 @@ export default function ThanaMapSection() {
         <div className="mt-4 grid gap-4 lg:grid-cols-[1fr_360px]">
             <div className="h-[500px] lg:h-[600px]">
                 <MapShell
-                    data={geoData}
+                    data={boundaryData}
                     layerType="thana"
                     selectedId={selectedId}
                     onFeatureClick={handleFeatureClick}
@@ -69,8 +70,8 @@ export default function ThanaMapSection() {
                             key={item.id}
                             onClick={() => setSelectedId(item.id === selectedId ? null : item.id)}
                             className={`w-full text-left rounded-lg px-3 py-2 text-sm transition-colors ${item.id === selectedId
-                                    ? 'bg-amber-100 text-amber-800 dark:bg-amber-500/20 dark:text-amber-200'
-                                    : 'text-gray-700 hover:bg-gray-50 dark:text-gray-300 dark:hover:bg-white/5'
+                                ? 'bg-amber-100 text-amber-800 dark:bg-amber-500/20 dark:text-amber-200'
+                                : 'text-gray-700 hover:bg-gray-50 dark:text-gray-300 dark:hover:bg-white/5'
                                 }`}
                         >
                             <span className="font-medium">{item.name}</span>
@@ -85,8 +86,8 @@ export default function ThanaMapSection() {
                             key={item.id}
                             onClick={() => setSelectedId(item.id === selectedId ? null : item.id)}
                             className={`w-full text-left rounded-lg px-3 py-2 text-sm transition-colors ${item.id === selectedId
-                                    ? 'bg-amber-100 text-amber-800 dark:bg-amber-500/20 dark:text-amber-200'
-                                    : 'text-gray-700 hover:bg-gray-50 dark:text-gray-300 dark:hover:bg-white/5'
+                                ? 'bg-amber-100 text-amber-800 dark:bg-amber-500/20 dark:text-amber-200'
+                                : 'text-gray-700 hover:bg-gray-50 dark:text-gray-300 dark:hover:bg-white/5'
                                 }`}
                         >
                             <span className="font-medium">{item.name}</span>

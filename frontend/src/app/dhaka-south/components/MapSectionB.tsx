@@ -3,7 +3,7 @@
 import { useState, useCallback } from 'react';
 import dynamic from 'next/dynamic';
 import type { DccFeature, CityCode } from '@/lib/types';
-import { getWardsGeoJSON, getWardListItems, getThanaListItems, getConstituencyListItems } from '@/lib/data';
+import { getWardsGeoJSON, getWardListItems, getThanaListItems, getConstituencyListItems, getBoundaryGeoJSON } from '@/lib/data';
 import SearchInput, { useSearch } from '@/components/common/SearchInput';
 import GeoLegend from '@/components/common/GeoLegend';
 
@@ -22,6 +22,7 @@ export default function MapSectionB({ city, title, description }: MapSectionBPro
     const [activeTab, setActiveTab] = useState<Tab>('wards');
     const [search, setSearch] = useState('');
 
+    const boundaryData = getBoundaryGeoJSON(city);
     const geoData = getWardsGeoJSON(city);
     const wardItems = getWardListItems(city);
     const thanaItems = getThanaListItems(city);
@@ -51,7 +52,7 @@ export default function MapSectionB({ city, title, description }: MapSectionBPro
 
                 <div className="mt-4 grid gap-4 lg:grid-cols-[1fr_340px]">
                     <div className="h-[400px] lg:h-[550px]">
-                        <MapShell data={geoData} layerType="ward" selectedId={selectedId} onFeatureClick={handleFeatureClick} className="h-full" />
+                        <MapShell data={boundaryData} layerType="ward" selectedId={selectedId} onFeatureClick={handleFeatureClick} className="h-full" />
                     </div>
 
                     <div className="flex flex-col gap-3 rounded-xl border border-gray-200 bg-white p-4 dark:border-white/10 dark:bg-slate-900 lg:max-h-[550px]">
